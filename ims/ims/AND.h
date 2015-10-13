@@ -2,5 +2,7 @@
 
 class AND : public Logic
 {
-	virtual bool getY();
+	virtual bit getY();
 };
+
+

@@ -2,5 +2,5 @@
 
 class OR : public Logic
 {
-	virtual bool getY();
+	virtual bit getY();
 };

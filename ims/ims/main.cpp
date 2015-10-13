@@ -12,9 +12,8 @@ int main(void)
 	AND and1;
 	OR or1;
 
-	and1.setA(true);
-	and1.setB(false);
-	cout << and1.toString();
+	and1.setA(H);
+	and1.setB(L);
 	
 	system("pause");
 }

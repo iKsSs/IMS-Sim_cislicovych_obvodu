@@ -5,22 +5,27 @@ using namespace std;
 #ifndef __LOGIC__
 #define __LOGIC__
 
+typedef enum 
+{
+	L, 
+	H,
+	X
+}bit;
+
 class Logic
 {
 protected:
-	bool Y, A, B;
+	bit Y, A, B;
 	unsigned char delta;
 
 public:
-	virtual bool getY() = 0;
+	virtual bit getY() = 0;
 	
-	void setA(bool);
-	void setB(bool);
+	void setA(bit);
+	void setB(bit);
 
 	void setDelta(unsigned char);
 	unsigned char getDelta();
-
-	string toString();
 };
 
 #endif

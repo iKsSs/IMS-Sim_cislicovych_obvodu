@@ -1,6 +1,11 @@
 #include "OR.h"
 
-bool OR::getY()
+bit OR::getY()
 {
-	return this->A | this->B;
+	if (this->A == X || this->B == X)
+		return X;
+	else if (this->A == H || this->B == H)
+		return H;
+	else
+		return L;
 }
