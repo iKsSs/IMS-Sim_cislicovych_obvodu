@@ -27,6 +27,15 @@
     <ClCompile Include="OR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="NOT.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="parser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="SimCore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logic.h">
@@ -36,6 +45,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NOT.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="parser.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SimCore.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

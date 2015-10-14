@@ -145,12 +145,18 @@
     <ClCompile Include="AND.cpp" />
     <ClCompile Include="Logic.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NOT.cpp" />
     <ClCompile Include="OR.cpp" />
+    <ClCompile Include="parser.cpp" />
+    <ClCompile Include="SimCore.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AND.h" />
     <ClInclude Include="Logic.h" />
+    <ClInclude Include="NOT.h" />
     <ClInclude Include="OR.h" />
+    <ClInclude Include="parser.h" />
+    <ClInclude Include="SimCore.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

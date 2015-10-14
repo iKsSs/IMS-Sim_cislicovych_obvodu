@@ -2,6 +2,8 @@
 
 class AND : public Logic
 {
+public:
+	AND();
 	virtual bit getY();
 };
 

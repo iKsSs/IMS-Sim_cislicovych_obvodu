@@ -1,5 +1,11 @@
 #include "AND.h"
 
+AND::AND()
+{
+	this->A = L;
+	this->B = L;
+}
+
 bit AND::getY()
 {
 	if (this->A == X || this->B == X)
@@ -8,4 +14,6 @@ bit AND::getY()
 		return H;
 	else
 		return L;
+
+	return X;
 }
