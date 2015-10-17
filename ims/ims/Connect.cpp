@@ -53,5 +53,19 @@ void Connect::setValue(bit b)
 	//adresuju všechny hradla z propojení a nastavuji jejich odpovídající piny dle b
 	//...
 	//a nakonec nastavím stav propojení
+
+	LogicsTable *lt = LogicsTable::instance();
+	
+
 	this->state = b;
+}
+
+void Connect::setName(string)
+{
+	this->name = name;
+}
+
+string Connect::getName()
+{
+	return this->name;
 }

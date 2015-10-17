@@ -24,7 +24,9 @@ int main(void)
 
 	lt->logics.push_back(and1);
 
-	//cout << test.logics[0];
+	cout << test->logics[0]->getName();
+
+	cc.getValue();
 
 	system("pause");
 }

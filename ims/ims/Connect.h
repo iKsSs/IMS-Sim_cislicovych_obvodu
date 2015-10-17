@@ -1,4 +1,6 @@
 #include <vector>
+#include <string>
+
 #include "Logic.h"
 
 using namespace std;
@@ -11,9 +13,12 @@ class Connect
 private:
 	bit state;
 	vector<string> pins;  //jmena hradel s teckovou notaci portu, dane hradlo se poté nalezne v tabulce hradel (vektor)
+	string name;
 public:
 	void setValue(bit);
 	bit getValue();  //return state
+	void setName(string);
+	string getName();
 };
 
 #endif
