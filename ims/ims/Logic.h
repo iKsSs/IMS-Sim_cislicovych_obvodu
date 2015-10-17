@@ -28,6 +28,7 @@ public:
 
 	void setDelta(unsigned char);
 	unsigned char getDelta();
+	string getName();
 };
 
 #endif

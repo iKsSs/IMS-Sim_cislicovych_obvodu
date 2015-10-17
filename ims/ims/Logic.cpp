@@ -15,6 +15,11 @@ void Logic::setName(string name)
 	this->name = name;
 }
 
+string Logic::getName()
+{
+	return this->name;
+}
+
 void Logic::setDelta(unsigned char delta)
 {
 	this->delta = delta;

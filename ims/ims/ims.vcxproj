@@ -145,6 +145,7 @@
     <ClCompile Include="AND.cpp" />
     <ClCompile Include="Connect.cpp" />
     <ClCompile Include="Logic.cpp" />
+    <ClCompile Include="LogicsTable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NOT.cpp" />
     <ClCompile Include="OR.cpp" />
@@ -155,6 +156,7 @@
     <ClInclude Include="AND.h" />
     <ClInclude Include="Connect.h" />
     <ClInclude Include="Logic.h" />
+    <ClInclude Include="LogicsTable.h" />
     <ClInclude Include="NOT.h" />
     <ClInclude Include="OR.h" />
     <ClInclude Include="scanner.h" />

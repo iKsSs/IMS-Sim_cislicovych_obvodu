@@ -3,6 +3,9 @@
 
 using namespace std;
 
+#ifndef __CONNECT_
+#define __CONNECT_
+
 class Connect
 {
 private:
@@ -12,3 +15,5 @@ public:
 	void setValue(bit);
 	bit getValue();  //return state
 };
+
+#endif
