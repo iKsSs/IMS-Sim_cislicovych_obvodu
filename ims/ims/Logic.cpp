@@ -10,6 +10,11 @@ void Logic::setB(bit B)
 	this->B = B;
 }
 
+void Logic::setName(string name)
+{
+	this->name = name;
+}
+
 void Logic::setDelta(unsigned char delta)
 {
 	this->delta = delta;

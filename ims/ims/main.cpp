@@ -9,11 +9,7 @@ int main(void)
 {
 	cout << "test" << endl;
 
-	AND and1;
-	OR or1;
+	Logic *and1 = new AND();
 
-	and1.setA(H);
-	and1.setB(L);
-	
 	system("pause");
 }
