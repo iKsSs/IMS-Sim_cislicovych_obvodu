@@ -2,6 +2,7 @@
 #include "OR.h"
 #include "Connect.h"
 #include "LogicsTable.h"
+#include "SimCore.h"
 
 #include <iostream>
 #include <vector>
@@ -12,21 +13,48 @@ LogicsTable* LogicsTable::pInstance = NULL;			//prvotni inicializace instance ta
 
 int main(void)
 {	
+	//test {
 	LogicsTable *lt = LogicsTable::instance();
-	LogicsTable *test = LogicsTable::instance();
-
-	Connect cc;
 	
-	cout << "test" << endl;
-
+	
 	Logic *and1 = new AND();
+	Logic *or1 = new OR();
+
 	and1->setName("and1");
+	or1->setName("or1");
 
-	lt->logics.push_back(and1);
+	Connect con1;
+	Connect con2;
+	Connect con3;
+	Connect con4;
+	Connect con5;
 
-	cout << test->logics[0]->getName();
+	con1.setName("con1");
+	con2.setName("con2");
+	con3.setName("con3");
+	con4.setName("con4");
+	con5.setName("con5");
 
-	cc.getValue();
+	con1.setValue(L);
+	con2.setValue(L);
+	con3.setValue(L);
+	con4.setValue(L);
+
+	lt->add(and1);
+	lt->add(or1);
+
+	con1.addToNode("and1.a");
+	con2.addToNode("and1.b");
+	con3.addToNode("or1.b");
+	con4.addToNode("and1.y");
+	con4.addToNode("or1.a");
+	con5.addToNode("or1.b");
+
+	SimCore sim(KLO, 10, 1);
+
+	sim.run();
 
 	system("pause");
+
+	//} test
 }

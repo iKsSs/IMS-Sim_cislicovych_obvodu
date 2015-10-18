@@ -1,5 +1,4 @@
 #include "SimCore.h"
-#include "SimCore.h"
 
 SimCore::SimCore(SIM_TYPE, int time, int resolution)
 {
@@ -18,6 +17,6 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 	{
 		
 
-		time += resolution;
+		elapsedTime += resolution;
 	}
 }

@@ -69,3 +69,9 @@ string Connect::getName()
 {
 	return this->name;
 }
+
+void Connect::addToNode(string el_name_pin)
+{
+	//posledni znak pin, pouze a, b, y
+	//prvni až druhý od konce nazev hradla
+}

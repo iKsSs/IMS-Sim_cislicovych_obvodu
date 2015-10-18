@@ -29,3 +29,8 @@ unsigned char Logic::getDelta()
 {
 	return this->delta;
 }
+
+void Logic::setLastChange(int time)				//nutno ze simulátoru volat po každé zmìnì vstupù hradla!!! Øešeno takto, a nejsou globalni promenné
+{
+	this->lastChange = time;
+}

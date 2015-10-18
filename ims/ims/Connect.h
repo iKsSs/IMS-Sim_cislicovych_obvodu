@@ -19,6 +19,7 @@ public:
 	bit getValue();  //return state
 	void setName(string);
 	string getName();
+	void addToNode(string);
 };
 
 #endif
