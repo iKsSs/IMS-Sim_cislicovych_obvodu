@@ -2,6 +2,7 @@
 #include "OR.h"
 #include "Connect.h"
 #include "LogicsTable.h"
+#include "Connections.h"
 #include "SimCore.h"
 
 #include <iostream>
@@ -10,12 +11,13 @@
 using namespace std;
 
 LogicsTable* LogicsTable::pInstance = NULL;			//prvotni inicializace instance tabulky hradel
+Connections* Connections::pInstance = NULL;			//prvotni inicializace instance tabulky propojeni 
 
 int main(void)
 {	
 	//test {
 	LogicsTable *lt = LogicsTable::instance();
-	
+	Connections *ct = Connections::instance();
 	
 	Logic *and1 = new AND();
 	Logic *or1 = new OR();
@@ -23,32 +25,40 @@ int main(void)
 	and1->setName("and1");
 	or1->setName("or1");
 
-	Connect con1;
-	Connect con2;
-	Connect con3;
-	Connect con4;
-	Connect con5;
-
-	con1.setName("con1");
-	con2.setName("con2");
-	con3.setName("con3");
-	con4.setName("con4");
-	con5.setName("con5");
-
-	con1.setValue(L);
-	con2.setValue(L);
-	con3.setValue(L);
-	con4.setValue(L);
-
 	lt->add(and1);
 	lt->add(or1);
 
-	con1.addToNode("and1.a");
-	con2.addToNode("and1.b");
-	con3.addToNode("or1.b");
-	con4.addToNode("and1.y");
-	con4.addToNode("or1.a");
-	con5.addToNode("or1.b");
+	Connect *con1 = new Connect();
+	Connect *con2 = new Connect();
+	Connect *con3 = new Connect();
+	Connect *con4 = new Connect();
+	Connect *con5 = new Connect();
+
+	con1->setName("con1");
+	con2->setName("con2");
+	con3->setName("con3");
+	con4->setName("con4");
+	con5->setName("con5");
+
+	con1->setValue(L);
+	con2->setValue(L);
+	con3->setValue(L);
+	con4->setValue(L);
+
+	con1->addToNode("and1.a");
+	con2->addToNode("and1.b");
+	con3->addToNode("or1.b");
+	con4->addToNode("and1.y");
+	con4->addToNode("or1.a");
+	con5->addToNode("or1.b");
+
+	ct->add(con1);
+	ct->add(con2);
+	ct->add(con3);
+	ct->add(con4);
+	ct->add(con5);
+
+	//zde bude sestavena struktura se scanneru
 
 	SimCore sim(KLO, 10, 1);
 

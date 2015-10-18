@@ -144,6 +144,7 @@
   <ItemGroup>
     <ClCompile Include="AND.cpp" />
     <ClCompile Include="Connect.cpp" />
+    <ClCompile Include="Connections.cpp" />
     <ClCompile Include="Logic.cpp" />
     <ClCompile Include="LogicsTable.cpp" />
     <ClCompile Include="main.cpp" />
@@ -155,6 +156,7 @@
   <ItemGroup>
     <ClInclude Include="AND.h" />
     <ClInclude Include="Connect.h" />
+    <ClInclude Include="Connections.h" />
     <ClInclude Include="Logic.h" />
     <ClInclude Include="LogicsTable.h" />
     <ClInclude Include="NOT.h" />
