@@ -15,6 +15,7 @@ private:
 	vector<string> pins;  //jmena hradel s teckovou notaci portu, dane hradlo se poté nalezne v tabulce hradel (vektor)
 	string name;
 public:
+	Connect();
 	void setValue(bit);
 	bit getValue();  //return state
 	void setName(string);

@@ -17,7 +17,7 @@ void LogicsTable::add(Logic *l)
 
 Logic* LogicsTable::search(string name)
 {
-	int count = this->logics.capacity();
+	int count = this->logics.size();
 	int i;
 
 	for (int i = 0; i < count; ++i)
