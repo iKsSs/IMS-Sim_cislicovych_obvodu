@@ -43,14 +43,30 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 			cout << "Value: " << this->connections->cons[i]->getValue() << endl;
 		}
 
-		cout << endl;
+		
 
 		for (i = 0; i < count; ++i)
 		{
-			bit b = this->connections->cons[i]->getValue();
+			vector<bits> outs;
+			outs = this->connections->cons[i]->getNextValues();
+			//ted zname èasy a stavy, ktere mame na teto sbìrnici nastavit
+
+			int count2 = outs.size();
+			int j;
+
+			for (j = 0; j < count2; ++j)
+			{
+				cout << "In time: " << elapsedTime + outs[j].time << " set Bus ";
+				cout <<  this->connections->cons[i]->getName() << ": ";
+				cout << "Value: " << outs[j].b << endl;
+			}
+
+
 			//ted probìhl dotaz na všechny hradla, ty aktualizovaly pøípadnì stav sbìrnice a nyní je potøeba sbìrnici nastavit do nového stavu
-			this->connections->cons[i]->setValue(b);
+			//this->connections->cons[i]->setValue(b);
 		}
+
+		cout << endl;
 
 		//prochazi jednotlivé propojení a zjistí jejich stav (X, L, H) a nastaví nový stav pøípadnì, to vše za použití metod set/getValue
 		

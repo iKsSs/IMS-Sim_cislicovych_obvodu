@@ -8,12 +8,69 @@ Connect::Connect()
 	this->state = X;
 }
 
+vector<bits> Connect::getNextValues()
+{
+	LogicsTable *lt = LogicsTable::instance();
+	int count = this->pins.size();
+	int i;
+	vector<bits> nextValue;
+
+	for (i = 0; i < count; ++i)
+	{
+		string tmp = pins[i];
+		char pin = tmp[tmp.length() - 1];
+		string name = tmp.substr(0, tmp.length() - 2);
+
+		if (pin == 'y')
+		{
+			Logic *ll = lt->search(name);
+
+			if (ll != NULL)
+			{
+				bits val;
+				val.time = ll->getDelta();
+				val.b = ll->getY();
+
+				//existuje už záznam z tímto èasem?
+				int count2 = nextValue.size();
+				int j;
+
+				if (count2 == 0)		//vklada prvni prvek
+				{
+					nextValue.push_back(val);
+				}
+
+				for (j = 0; j < count2; ++j)
+				{
+					if (nextValue[j].time == val.time)		//záznam existuje, jen kontroluji, zda se hradla, které v tento èas vkládají, shodla
+					{
+						if ((nextValue[j].b == X) || (nextValue[j].b == L && val.b == L) || (nextValue[j].b == H && val.b == H))
+						{
+							nextValue[j].b = val.b;
+						}
+						else 
+						{
+							throw("Chyba bìhem simulace, nedefinovaný stav na sbìrnici.\n");
+						}
+					}
+					else //záznam s tímto èasem neexistuje
+					{
+						nextValue.push_back(val);	//tak jej vložím
+					}
+				}
+			}
+		}
+	}
+
+	return nextValue;
+}
+
 bit Connect::getValue()
 {	
 	//stav porpojení je dán VŠEMI výstupy hradel (y), které jsou k nìmu pøipojeny
 	//výstupy se musí jednohlasnì shodnout ve výstupním stavu, jinak je chyba
 	//pøipouští se kombinace 0 X -> 0 a 1 X -> 1
-	LogicsTable *lt = LogicsTable::instance();
+	/*LogicsTable *lt = LogicsTable::instance();
 	int count = this->pins.size();
 	int i;
 	bit tmpState = X;
@@ -48,6 +105,8 @@ bit Connect::getValue()
 	if (tmpState != X)	//hradla se jednoznaènì rozhodla, pøenastaví výstup
 		this->state = tmpState;
 	
+	return this->state;*/
+
 	return this->state;
 }
 
