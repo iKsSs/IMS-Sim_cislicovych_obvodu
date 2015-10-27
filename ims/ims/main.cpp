@@ -53,8 +53,8 @@ int main(void)
 	con5->addToNode("or1.b");
 	con6->addToNode("or1.y");
 
-	con1->setValue(L);
-	con2->setValue(L);
+	con1->setValue(H);
+	con2->setValue(H);
 	con3->setValue(L);
 	con4->setValue(L);
 	con5->setValue(H);

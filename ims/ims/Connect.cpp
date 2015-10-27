@@ -112,10 +112,10 @@ bit Connect::getValue()
 
 void Connect::setValue(bit b)
 {
-	//if (b == this->getValue())			//nemohu testovat hned, nutno zjistit, zda nova hodnota neni v rozporu s vystupem nejakého hradla
-	//{
-	//	return;		//neni zmìna, zahazuju
-	//}
+	if (b == this->getValue())			//nemohu testovat hned, nutno zjistit, zda nova hodnota neni v rozporu s vystupem nejakého hradla
+	{
+		return;		//neni zmìna, zahazuju
+	}
 
 	//adresuju všechny hradla z propojení a nastavuji jejich odpovídající piny dle b
 	//...

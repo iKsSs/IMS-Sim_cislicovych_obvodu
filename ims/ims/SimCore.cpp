@@ -41,6 +41,7 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 			cout << "Time: " << elapsedTime << ": ";
 			cout << "Bus " << this->connections->cons[i]->getName() << ": ";
 			cout << "Value: " << this->connections->cons[i]->getValue() << endl;
+
 		}
 
 		
@@ -59,6 +60,9 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 				cout << "In time: " << elapsedTime + outs[j].time << " set Bus ";
 				cout <<  this->connections->cons[i]->getName() << ": ";
 				cout << "Value: " << outs[j].b << endl;
+
+				//prasárna
+				//this->connections->cons[i]->setValue(outs[j].b);
 			}
 
 
