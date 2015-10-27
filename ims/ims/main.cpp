@@ -25,6 +25,9 @@ int main(void)
 	and1->setName("and1");
 	or1->setName("or1");
 
+	and1->setDelta(2);
+	or1->setDelta(4);
+
 	lt->add(and1);
 	lt->add(or1);
 
