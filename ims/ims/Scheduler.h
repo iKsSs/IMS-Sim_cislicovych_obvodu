@@ -50,6 +50,7 @@ private:
 	Scheduler(Scheduler const&);
 	Scheduler& operator=(Scheduler const&);
 	static Scheduler* pInstance;
+	unsigned int min_index;
 
 public:
 	//queue<SchedulerEvent *> q;
@@ -70,6 +71,8 @@ public:
 	* @return		SchedulerEvent*			událost
 	*/
 	SchedulerEvent *getNextEvent();
+
+	void popEvent();
 
 	/**
 	* Test, zda existují ještì nìjaké události.

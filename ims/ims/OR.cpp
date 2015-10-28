@@ -2,8 +2,7 @@
 
 OR::OR()
 {
-	this->A = L;
-	this->B = L;
+
 }
 
 bit OR::getY()

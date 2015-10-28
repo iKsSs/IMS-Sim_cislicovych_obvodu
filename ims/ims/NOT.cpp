@@ -2,7 +2,7 @@
 
 NOT::NOT()
 {
-	this->A = L;
+
 }
 
 bit NOT::getY()

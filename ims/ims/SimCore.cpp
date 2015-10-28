@@ -32,6 +32,8 @@ void SimCore::printResult()
 	}
 
 	cout << endl;
+
+	//system("pause");
 	//konec vypisu
 }
 
@@ -39,28 +41,30 @@ void SimCore::run()
 {
 	Scheduler *scheduler = Scheduler::instance();
 
-	while (this->elapsedTime <= this->time && !scheduler->isEmpty())
+	while (this->elapsedTime <= this->time)
 	{
-		//provedení operace z plánu
+		SchedulerEvent* e;
 
-		SchedulerEvent* e = scheduler->getNextEvent();
-
-		if (elapsedTime != e->time)			//vypisuje vždy až po provádìní všech akcí ve stejném simulaèním èase
+		while(!scheduler->isEmpty())			//provede všechny události v daný simulaèní èas
 		{
-			this->printResult();
+			e = scheduler->getNextEvent();
+
+			bit b = e->b;
+			Connect *c = (Connect*)e->c;
+
+			c->setValue(b);
+
+			cout << "Set bus name: " << c->getName() <<  "to value: " << e->b << endl;
+
+			if (e->time > this->elapsedTime)
+				break;
+
+			scheduler->popEvent();
 		}
 
-		elapsedTime = e->time;
+		elapsedTime = e->time;		//novy simulaèní èas
 
-		bit b = e->b;
-		Connect *c = (Connect*)e->c;
-
-		c->setValue(b);
-
-		//probìhlo nastavení z kalendáøe
-
-		//probìhne výpoèet a plánování nových hodnot na základì tìchto zmìn
-
+		//pøepoèet modelu
 		int count = this->connections->cons.size();
 
 		for (int i = 0; i < count; ++i)
@@ -75,9 +79,27 @@ void SimCore::run()
 			for (j = 0; j < count2; ++j)
 			{
 				SchedulerEvent *e = (SchedulerEvent*)outs[j];
+
 				e->time += elapsedTime;
 				scheduler->addEvent(e);			//naplanoval udalost
 			}
 		}
+
+		cout << "Now: " << endl;
+		printResult();
+
+		cout << endl << endl;
+
+		//co naplanoval:
+
+		cout << "Print scheduler:" << endl;
+		for (int i = 0; i < scheduler->q.size(); ++i)
+		{
+			cout << "In time: " << scheduler->q[i]->time;
+			cout << " set bus name: " << ((Connect*)(scheduler->q[i]->c))->getName();
+			cout << " to value: " << scheduler->q[i]->b << endl;
+
+		}
+		cout << endl << endl;
 	}
 }
