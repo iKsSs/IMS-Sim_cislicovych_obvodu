@@ -32,8 +32,6 @@ void SimCore::printResult()
 	}
 
 	cout << endl;
-
-	system("pause");
 	//konec vypisu
 }
 
