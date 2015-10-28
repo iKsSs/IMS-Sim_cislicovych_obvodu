@@ -1,3 +1,19 @@
+/** @file Connect.h*/
+
+/*************************************\
+*			  *
+*	Autoøi:							  *
+*		xpitri00 - Martin Pitøík	  *
+*		xpastu00 - Jakub Pastuszek	  *
+*									  *
+\*************************************/
+/*
+Modul: Connect
+Author: Martin Pitøík
+Rev: 3
+*/
+
+
 #include <vector>
 #include <string>
 
@@ -8,6 +24,9 @@ using namespace std;
 #ifndef __CONNECT_
 #define __CONNECT_
 
+/**
+* Struktura popisující jednotlivé zmìny logické hodnoty v èase.
+*/
 typedef struct
 {
 	unsigned int time;		//kdy
@@ -16,27 +35,65 @@ typedef struct
 	void *c;				//koho aktualizovat (void ukazatel je zde použít, protože ještì není známa tøída connect, nicménì tøída connect tuto strukturu využívá a proto musí být uvedena pøed ní
 } bits;
 
+/**
+* Struktura popisující pøipojení konkrétního pinu hradla k spojení.
+*/
 typedef struct
 {
 	Logic *l;
 	char pin;
 } NodeItem;
 
+/**
+* Tøída popisující spojení jednotlivých pinù hradel.
+*/
 class Connect
 {
 private:
 	bit state;
-	vector<string> pins;  //ZASTARALE!!! jmena hradel s teckovou notaci portu, dane hradlo se poté nalezne v tabulce hradel (vektor)
 	vector<NodeItem> nodePins;
 	string name;
 public:
+	/**
+	* Bezparametrický konstruktor.
+	*/
 	Connect();
+
+	/**
+	* Nastavení hodnoty na daném spojení. Touto hodnotou jsou potom inicializována všechna hradla pøipojená k propojení.
+	* @param		bit			nastavení stavu propojení
+	*/
 	void setValue(bit);
+
+	/**
+	* Vrací hodnotu daného propojení.
+	* @return		bit			hodnota propojení
+	*/
 	bit getValue();  //return state
+
+	/**
+	* Vrací hodnotu daného propojení v èase.
+	* @return vector<bits*>		hodnoty propojení v budoucím èase
+	*/
 	vector<bits*> getNextValues(); //vrací hodnoty sbìrnice v následujícíh èasech, jak se vyvolají události na hradlech, po uplynutí zpoždìní
+	
+	/**
+	* Nastaví jméno daného propojení.
+	* @param		string		jméno
+	*/
 	void setName(string);
+
+	/**
+	* Získá jméno daného propojení.
+	* @return		string		jméno
+	*/
 	string getName();
-	void addToNode(string);		//zastaralé, ponecháno jen kvùli rozhraní zatím neaktualizovaných funkcí!!!
+	
+	/**
+	* Pøidá pin hradla do daného propojení.
+	* @param		Logic*		hradlo implementující rozhraní Logic
+	* @param		char		pin (a/b/y)
+	*/
 	void addToNode(Logic*, char);
 };
 

@@ -5,9 +5,7 @@
 AND::AND()
 {
 	this->A = L;
-	this->B = L;
-	
-	this->state = X;			
+	this->B = L;		
 }
 
 bit AND::getY()

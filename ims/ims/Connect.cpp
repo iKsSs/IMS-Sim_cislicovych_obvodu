@@ -181,11 +181,6 @@ string Connect::getName()
 	return this->name;
 }
 
-void Connect::addToNode(string el_name_pin)  //co kdyby se tady pøedával odkaz na konkrétní hradlo - urychlilo by se to, nemuselo by se vyhledávat
-{
-	this->pins.push_back(el_name_pin);
-}
-
 void Connect::addToNode(Logic* l, char pin)
 {
 	NodeItem tmp;

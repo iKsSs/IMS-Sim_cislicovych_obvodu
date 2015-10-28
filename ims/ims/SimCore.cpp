@@ -24,6 +24,7 @@ void SimCore::init()
 
 void SimCore::run()									//a nebo parametry simulace tady místo do konstruktoru???
 {
+	bool changed = true;
 	Scheduler *scheduler = Scheduler::instance();
 
 	while (this->elapsedTime <= this->time)			///time, resolution je ve stejnych jednotkách
@@ -36,13 +37,15 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 		int count = this->connections->cons.size();
 		int i;
 
-		for (i = 0; i < count; ++i)
+		/*for (i = 0; i < count; ++i)
 		{
 			//pro vypis, vypisuju stavy sbìrnice
 			cout << "Time: " << elapsedTime << ": ";
 			cout << "Bus " << this->connections->cons[i]->getName() << ": ";
 			cout << "Value: " << this->connections->cons[i]->getValue() << endl;
 		}
+
+		cout << endl;*/
 
 		for (i = 0; i < count; ++i)
 		{
@@ -65,8 +68,6 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 			}
 		}
 
-		cout << endl;
-
 		if (scheduler->isEmpty())
 		{
 			break;			//nic neni, co by se zmenilo, simulace muze skonèit
@@ -79,6 +80,22 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 		Connect *c = (Connect*)e->c;
 
 		c->setValue(b);
+
+		if (e->time != this->elapsedTime)
+		{
+			int count = this->connections->cons.size();
+			int i;
+
+			for (i = 0; i < count; ++i)
+			{
+				//pro vypis, vypisuju stavy sbìrnice
+				cout << "Time: " << elapsedTime << ": ";
+				cout << "Bus " << this->connections->cons[i]->getName() << ": ";
+				cout << "Value: " << this->connections->cons[i]->getValue() << endl;
+			}
+
+			cout << endl;
+		}
 
 		this->elapsedTime = e->time; //novy simulaèní èas
 	}

@@ -13,7 +13,7 @@ using namespace std;
 
 LogicsTable* LogicsTable::pInstance = NULL;			//prvotni inicializace instance tabulky hradel
 Connections* Connections::pInstance = NULL;			//prvotni inicializace instance tabulky propojeni 
-Scheduler* Scheduler::pInstance = NULL;
+Scheduler* Scheduler::pInstance = NULL;				//prvotni incicializace instance plánovaèe
 
 int main(void)
 {	
@@ -44,37 +44,51 @@ int main(void)
 	con2->setName("con2");
 	con3->setName("con3");
 	con4->setName("con4");
-	con5->setName("con5");
 	con6->setName("con6");
-
-	//con1->addToNode("and1.a");
-	//con2->addToNode("and1.b");
-	//con3->addToNode("or1.b");
-	//con4->addToNode("and1.y");
-	//con4->addToNode("or1.a");
-	//con5->addToNode("or1.b");
-	//con6->addToNode("or1.y");
 
 	con1->addToNode(and1, 'a');
 	con2->addToNode(and1, 'b');
 	con3->addToNode(or1, 'b');
 	con4->addToNode(and1, 'y');
 	con4->addToNode(or1, 'a');
-	con5->addToNode(or1, 'b');
 	con6->addToNode(or1, 'y');
 
-	con1->setValue(L);
-	con2->setValue(H);
-	con3->setValue(L);
-	con4->setValue(L);
-	con5->setValue(H);
-	con6->setValue(L);
+	Scheduler* scheduler = Scheduler::instance();
+
+	SchedulerEvent *s1 = new SchedulerEvent;
+	s1->b = H;
+	s1->c = con1;
+	s1->time = 0;
+	scheduler->addEvent(s1);
+
+	SchedulerEvent *s2 = new SchedulerEvent;
+	s2->b = H;
+	s2->c = con2;
+	s2->time = 0;
+	scheduler->addEvent(s2);
+
+	SchedulerEvent *s3 = new SchedulerEvent;
+	s3->b = L;
+	s3->c = con3;
+	s3->time = 0;
+	scheduler->addEvent(s3);
+
+	SchedulerEvent *s4 = new SchedulerEvent;
+	s4->b = L;
+	s4->c = con4;
+	s4->time = 0;
+	scheduler->addEvent(s4);
+
+	SchedulerEvent *s6 = new SchedulerEvent;
+	s6->b = L;
+	s6->c = con6;
+	s6->time = 0;
+	scheduler->addEvent(s6);
 
 	ct->add(con1);
 	ct->add(con2);
 	ct->add(con3);
 	ct->add(con4);
-	ct->add(con5);
 	ct->add(con6);
 
 	//zde bude sestavena struktura se scanneru
