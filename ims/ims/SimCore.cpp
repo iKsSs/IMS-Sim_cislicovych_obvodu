@@ -22,32 +22,57 @@ void SimCore::init()
 	//prvnotni nastaveni sbìrnic????
 }
 
-void SimCore::run()									//a nebo parametry simulace tady místo do konstruktoru???
+void SimCore::printResult()
 {
-	bool changed = true;
+	//vypis hodnot se sbìrnice
+	int count = this->connections->cons.size();
+	int i;
+
+	for (i = 0; i < count; ++i)
+	{
+		//pro vypis, vypisuju stavy sbìrnice
+		cout << "Time: " << elapsedTime << ": ";
+		cout << "Bus " << this->connections->cons[i]->getName() << ": ";
+		cout << "Value: " << this->connections->cons[i]->getValue() << endl;
+	}
+
+	cout << endl;
+
+	system("pause");
+	//konec vypisu
+}
+
+void SimCore::run()
+{
+	this->init();
+
 	Scheduler *scheduler = Scheduler::instance();
 
-	while (this->elapsedTime <= this->time)			///time, resolution je ve stejnych jednotkách
+	while (this->elapsedTime <= this->time && !scheduler->isEmpty())
 	{
-		//pokud je zmìna stavu sbìrnice, navolá hradla na ní navolané, nastaví èasy do timemanageru a 
-		//po uplynutí èasù nastaví sbìrnice do odpovídajících hodnot, a pak se celý dìj zase opakuje
+		//provedení operace z plánu
 
-		//predpokladejme, že jsme v èase t, kdy se má provést jistý úkol simulace, tedy probìhne spuštìní a analýza celého modelu
+		SchedulerEvent* e = scheduler->getNextEvent();
 
-		int count = this->connections->cons.size();
-		int i;
-
-		/*for (i = 0; i < count; ++i)
+		if (elapsedTime != e->time)			//vypisuje vždy až po provádìní všech akcí ve stejném simulaèním èase
 		{
-			//pro vypis, vypisuju stavy sbìrnice
-			cout << "Time: " << elapsedTime << ": ";
-			cout << "Bus " << this->connections->cons[i]->getName() << ": ";
-			cout << "Value: " << this->connections->cons[i]->getValue() << endl;
+			this->printResult();
 		}
 
-		cout << endl;*/
+		elapsedTime = e->time;
 
-		for (i = 0; i < count; ++i)
+		bit b = e->b;
+		Connect *c = (Connect*)e->c;
+
+		c->setValue(b);
+
+		//probìhlo nastavení z kalendáøe
+
+		//probìhne výpoèet a plánování nových hodnot na základì tìchto zmìn
+
+		int count = this->connections->cons.size();
+
+		for (int i = 0; i < count; ++i)
 		{
 			vector<bits*> outs;
 			outs = this->connections->cons[i]->getNextValues();
@@ -58,45 +83,10 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 
 			for (j = 0; j < count2; ++j)
 			{
-				//cout << "In time: " << elapsedTime + outs[j]->time << " set Bus ";
-				//cout <<  ((Connect*)outs[j]->c)->getName() << ": ";
-				//cout << "Value: " << outs[j]->b << endl;
-
 				SchedulerEvent *e = (SchedulerEvent*)outs[j];
 				e->time += elapsedTime;
 				scheduler->addEvent(e);			//naplanoval udalost
 			}
 		}
-
-		if (scheduler->isEmpty())
-		{
-			break;			//nic neni, co by se zmenilo, simulace muze skonèit
-		}
-		
-		SchedulerEvent* e = scheduler->getNextEvent();
-
-		//provedeni akci
-		bit b = e->b;
-		Connect *c = (Connect*)e->c;
-
-		c->setValue(b);
-
-		if (e->time != this->elapsedTime)
-		{
-			int count = this->connections->cons.size();
-			int i;
-
-			for (i = 0; i < count; ++i)
-			{
-				//pro vypis, vypisuju stavy sbìrnice
-				cout << "Time: " << elapsedTime << ": ";
-				cout << "Bus " << this->connections->cons[i]->getName() << ": ";
-				cout << "Value: " << this->connections->cons[i]->getValue() << endl;
-			}
-
-			cout << endl;
-		}
-
-		this->elapsedTime = e->time; //novy simulaèní èas
 	}
 }

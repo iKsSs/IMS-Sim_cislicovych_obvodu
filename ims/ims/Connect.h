@@ -53,6 +53,7 @@ private:
 	bit state;
 	vector<NodeItem> nodePins;
 	string name;
+	bool changed;
 public:
 	/**
 	* Bezparametrický konstruktor.

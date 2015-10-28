@@ -44,6 +44,7 @@ private:
 	Connections *connections;
 
 	void init();
+	void printResult();
 public:
 	/**
 	* Vytvoøení nové simulace - konstruktor.
