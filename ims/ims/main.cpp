@@ -53,6 +53,8 @@ int main(void)
 	con4->addToNode(or1, 'a');
 	con6->addToNode(or1, 'y');
 
+	//prvotni inicializace sbìrnic do plánovaèe
+
 	Scheduler* scheduler = Scheduler::instance();
 
 	SchedulerEvent *s1 = new SchedulerEvent;

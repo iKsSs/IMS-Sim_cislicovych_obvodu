@@ -17,11 +17,6 @@ SimCore::SimCore(SIM_TYPE, int time, int resolution)
 	this->connections = Connections::instance();
 }
 
-void SimCore::init()
-{
-	//prvnotni nastaveni sbìrnic????
-}
-
 void SimCore::printResult()
 {
 	//vypis hodnot se sbìrnice
@@ -44,8 +39,6 @@ void SimCore::printResult()
 
 void SimCore::run()
 {
-	this->init();
-
 	Scheduler *scheduler = Scheduler::instance();
 
 	while (this->elapsedTime <= this->time && !scheduler->isEmpty())

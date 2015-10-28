@@ -43,7 +43,6 @@ private:
 	LogicsTable *logicTable;
 	Connections *connections;
 
-	void init();
 	void printResult();
 public:
 	/**
