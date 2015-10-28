@@ -45,15 +45,23 @@ int main(void)
 	con5->setName("con5");
 	con6->setName("con6");
 
-	con1->addToNode("and1.a");
-	con2->addToNode("and1.b");
-	con3->addToNode("or1.b");
-	con4->addToNode("and1.y");
-	con4->addToNode("or1.a");
-	con5->addToNode("or1.b");
-	con6->addToNode("or1.y");
+	//con1->addToNode("and1.a");
+	//con2->addToNode("and1.b");
+	//con3->addToNode("or1.b");
+	//con4->addToNode("and1.y");
+	//con4->addToNode("or1.a");
+	//con5->addToNode("or1.b");
+	//con6->addToNode("or1.y");
 
-	con1->setValue(H);
+	con1->addToNode(and1, 'a');
+	con2->addToNode(and1, 'b');
+	con3->addToNode(or1, 'b');
+	con4->addToNode(and1, 'y');
+	con4->addToNode(or1, 'a');
+	con5->addToNode(or1, 'b');
+	con6->addToNode(or1, 'y');
+
+	con1->setValue(L);
 	con2->setValue(H);
 	con3->setValue(L);
 	con4->setValue(L);

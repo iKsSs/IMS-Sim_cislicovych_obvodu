@@ -14,11 +14,18 @@ typedef struct
 	bit b;
 } bits;
 
+typedef struct
+{
+	Logic *l;
+	char pin;
+} NodeItem;
+
 class Connect
 {
 private:
 	bit state;
 	vector<string> pins;  //jmena hradel s teckovou notaci portu, dane hradlo se poté nalezne v tabulce hradel (vektor)
+	vector<NodeItem> nodePins;
 	string name;
 public:
 	Connect();
@@ -28,6 +35,7 @@ public:
 	void setName(string);
 	string getName();
 	void addToNode(string);
+	void addToNode(Logic*, char);
 };
 
 #endif

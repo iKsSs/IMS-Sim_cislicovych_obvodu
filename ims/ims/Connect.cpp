@@ -10,53 +10,57 @@ Connect::Connect()
 
 vector<bits> Connect::getNextValues()
 {
-	LogicsTable *lt = LogicsTable::instance();
-	int count = this->pins.size();
+	//LogicsTable *lt = LogicsTable::instance();
+	//int count = this->pins.size();
+	int count = this->nodePins.size();
 	int i;
 	vector<bits> nextValue;
 
 	for (i = 0; i < count; ++i)
 	{
-		string tmp = pins[i];
-		char pin = tmp[tmp.length() - 1];
-		string name = tmp.substr(0, tmp.length() - 2);
+		//string tmp = pins[i];
+		//char pin = tmp[tmp.length() - 1];
+		//string name = tmp.substr(0, tmp.length() - 2);
 
-		if (pin == 'y')
+		NodeItem tmp = this->nodePins[i];
+
+		if (tmp.pin == 'y')
 		{
-			Logic *ll = lt->search(name);
+			//Logic *ll = lt->search(name);
 
-			if (ll != NULL)
+			//if (ll != NULL)
+			//{
+			bits val;
+			//val.time = ll->getDelta();
+			val.time = tmp.l->getDelta();
+			//val.b = ll->getY();
+			val.b = tmp.l->getY();
+
+			//existuje už záznam z tímto èasem?
+			int count2 = nextValue.size();
+			int j;
+
+			if (count2 == 0)		//vklada prvni prvek
 			{
-				bits val;
-				val.time = ll->getDelta();
-				val.b = ll->getY();
+				nextValue.push_back(val);
+			}
 
-				//existuje už záznam z tímto èasem?
-				int count2 = nextValue.size();
-				int j;
-
-				if (count2 == 0)		//vklada prvni prvek
+			for (j = 0; j < count2; ++j)
+			{
+				if (nextValue[j].time == val.time)		//záznam existuje, jen kontroluji, zda se hradla, které v tento èas vkládají, shodla
 				{
-					nextValue.push_back(val);
+					if ((nextValue[j].b == X) || (nextValue[j].b == L && val.b == L) || (nextValue[j].b == H && val.b == H))
+					{
+						nextValue[j].b = val.b;
+					}
+					else
+					{
+						throw("Chyba bìhem simulace, nedefinovaný stav na sbìrnici.\n");
+					}
 				}
-
-				for (j = 0; j < count2; ++j)
+				else //záznam s tímto èasem neexistuje
 				{
-					if (nextValue[j].time == val.time)		//záznam existuje, jen kontroluji, zda se hradla, které v tento èas vkládají, shodla
-					{
-						if ((nextValue[j].b == X) || (nextValue[j].b == L && val.b == L) || (nextValue[j].b == H && val.b == H))
-						{
-							nextValue[j].b = val.b;
-						}
-						else 
-						{
-							throw("Chyba bìhem simulace, nedefinovaný stav na sbìrnici.\n");
-						}
-					}
-					else //záznam s tímto èasem neexistuje
-					{
-						nextValue.push_back(val);	//tak jej vložím
-					}
+					nextValue.push_back(val);	//tak jej vložím
 				}
 			}
 		}
@@ -66,7 +70,7 @@ vector<bits> Connect::getNextValues()
 }
 
 bit Connect::getValue()
-{	
+{
 	//stav porpojení je dán VŠEMI výstupy hradel (y), které jsou k nìmu pøipojeny
 	//výstupy se musí jednohlasnì shodnout ve výstupním stavu, jinak je chyba
 	//pøipouští se kombinace 0 X -> 0 a 1 X -> 1
@@ -76,23 +80,23 @@ bit Connect::getValue()
 	bit tmpState = X;
 
 	for (i = 0; i < count; ++i)
-	{	
-		string tmp = pins[i];  
+	{
+		string tmp = pins[i];
 		char pin = tmp[tmp.length() - 1];	   //nazevxxxx.Y cte posledni pismenos
 		string name = tmp.substr(0, tmp.length() - 2);
 
 		if (pin == 'y')			//je vystupní
-		{			
+		{
 			Logic* ll = lt->search(name);
 
 			if (ll != NULL)
 			{
 				if (ll->getY() == X);
-				else if (ll->getY() == L && (tmpState == L || tmpState == X)) 
+				else if (ll->getY() == L && (tmpState == L || tmpState == X))
 					tmpState = L;
-				else if (ll->getY() == H && (tmpState == H || tmpState == X)) 
+				else if (ll->getY() == H && (tmpState == H || tmpState == X))
 					tmpState = H;
-				else 
+				else
 					throw("Chyba v prùbìhu provádìní simulace: konflikt na spojeni.\n");
 			}
 		}
@@ -104,7 +108,7 @@ bit Connect::getValue()
 
 	if (tmpState != X)	//hradla se jednoznaènì rozhodla, pøenastaví výstup
 		this->state = tmpState;
-	
+
 	return this->state;*/
 
 	return this->state;
@@ -123,34 +127,41 @@ void Connect::setValue(bit b)
 
 	this->state = b;
 
-	LogicsTable *lt = LogicsTable::instance();
-	
-	int count = this->pins.size();
+	//LogicsTable *lt = LogicsTable::instance();
+
+	//int count = this->pins.size();
+	int count = this->nodePins.size();
 	int i;
 
 	for (i = 0; i < count; ++i)
 	{
-		string tmp = pins[i];
-		char pin = tmp[tmp.length() - 1];	   //nazevxxxx.A/B cte posledni pismeno
-		string name = tmp.substr(0, tmp.length() - 2);
+		//string tmp = pins[i];
+		//char pin = tmp[tmp.length() - 1];	   //nazevxxxx.A/B cte posledni pismeno
+		//string name = tmp.substr(0, tmp.length() - 2);
 
-		if (pin == 'a')			//je vystupní
+		NodeItem tmp = this->nodePins[i];
+
+		if (tmp.pin == 'a')			//je vystupní
 		{
-			Logic* ll = lt->search(name);
+			//Logic* ll = lt->search(name);
 
-			if (ll != NULL)
-			{
-				ll->setA(b);
-			}
+			//if (ll != NULL)
+			//{
+			//	ll->setA(b);
+			//
+
+			tmp.l->setA(b);
 		}
-		else if (pin == 'b')
+		else if (tmp.pin == 'b')
 		{
-			Logic* ll = lt->search(name);
+			//Logic* ll = lt->search(name);
 
-			if (ll != NULL)
-			{
-				ll->setB(b);
-			}
+			//if (ll != NULL)
+			//{
+			//	ll->setB(b);
+			//}
+
+			tmp.l->setB(b);
 		}
 		else
 		{
@@ -158,7 +169,6 @@ void Connect::setValue(bit b)
 		}
 	}
 }
-
 
 void Connect::setName(string name)
 {
@@ -170,7 +180,17 @@ string Connect::getName()
 	return this->name;
 }
 
-void Connect::addToNode(string el_name_pin)
+void Connect::addToNode(string el_name_pin)  //co kdyby se tady pøedával odkaz na konkrétní hradlo - urychlilo by se to, nemuselo by se vyhledávat
 {
 	this->pins.push_back(el_name_pin);
+}
+
+void Connect::addToNode(Logic* l, char pin)
+{
+	NodeItem tmp;
+
+	tmp.l = l;
+	tmp.pin = pin;
+
+	this->nodePins.push_back(tmp);
 }
