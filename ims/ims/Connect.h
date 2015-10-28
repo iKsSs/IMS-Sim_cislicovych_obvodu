@@ -11,8 +11,9 @@ using namespace std;
 typedef struct
 {
 	unsigned int time;		//kdy
-	bit b;					//na co
-	void *c;				//koho (void ukazatel je zde použít, protože ještì není známa tøída connect, nicménì tøída connect tuto strukturu využívá a proto musí být uvedena pøed ní
+	bit b;					//na jakou hodnotu
+	//int i;				//koho aktualozovat (index do connections)
+	void *c;				//koho aktualizovat (void ukazatel je zde použít, protože ještì není známa tøída connect, nicménì tøída connect tuto strukturu využívá a proto musí být uvedena pøed ní
 } bits;
 
 typedef struct
@@ -25,17 +26,17 @@ class Connect
 {
 private:
 	bit state;
-	vector<string> pins;  //jmena hradel s teckovou notaci portu, dane hradlo se poté nalezne v tabulce hradel (vektor)
+	vector<string> pins;  //ZASTARALE!!! jmena hradel s teckovou notaci portu, dane hradlo se poté nalezne v tabulce hradel (vektor)
 	vector<NodeItem> nodePins;
 	string name;
 public:
 	Connect();
 	void setValue(bit);
 	bit getValue();  //return state
-	vector<bits> getNextValues(); //vrací hodnoty sbìrnice v následujícíh èasech, jak se vyvolají události na hradlech, po uplynutí zpoždìní
+	vector<bits*> getNextValues(); //vrací hodnoty sbìrnice v následujícíh èasech, jak se vyvolají události na hradlech, po uplynutí zpoždìní
 	void setName(string);
 	string getName();
-	void addToNode(string);
+	void addToNode(string);		//zastaralé, ponecháno jen kvùli rozhraní zatím neaktualizovaných funkcí!!!
 	void addToNode(Logic*, char);
 };
 

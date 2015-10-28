@@ -151,6 +151,7 @@
     <ClCompile Include="NOT.cpp" />
     <ClCompile Include="OR.cpp" />
     <ClCompile Include="scanner.cpp" />
+    <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="SimCore.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +163,7 @@
     <ClInclude Include="NOT.h" />
     <ClInclude Include="OR.h" />
     <ClInclude Include="scanner.h" />
+    <ClInclude Include="Scheduler.h" />
     <ClInclude Include="SimCore.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -4,6 +4,7 @@
 #include "LogicsTable.h"
 #include "Connections.h"
 #include "SimCore.h"
+#include "Scheduler.h"
 
 #include <iostream>
 #include <vector>
@@ -12,6 +13,7 @@ using namespace std;
 
 LogicsTable* LogicsTable::pInstance = NULL;			//prvotni inicializace instance tabulky hradel
 Connections* Connections::pInstance = NULL;			//prvotni inicializace instance tabulky propojeni 
+Scheduler* Scheduler::pInstance = NULL;
 
 int main(void)
 {	
@@ -25,8 +27,8 @@ int main(void)
 	and1->setName("and1");
 	or1->setName("or1");
 
-	and1->setDelta(2);
-	or1->setDelta(4);
+	and1->setDelta(4);
+	or1->setDelta(2);
 
 	lt->add(and1);
 	lt->add(or1);

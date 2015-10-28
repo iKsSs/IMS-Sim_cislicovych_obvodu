@@ -1,4 +1,5 @@
 #include "SimCore.h"
+#include "Scheduler.h"
 
 #include <iostream>
 
@@ -23,7 +24,7 @@ void SimCore::init()
 
 void SimCore::run()									//a nebo parametry simulace tady místo do konstruktoru???
 {
-	//do event manageru naplanuje init???
+	Scheduler *scheduler = Scheduler::instance();
 
 	while (this->elapsedTime <= this->time)			///time, resolution je ve stejnych jednotkách
 	{
@@ -41,12 +42,11 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 			cout << "Time: " << elapsedTime << ": ";
 			cout << "Bus " << this->connections->cons[i]->getName() << ": ";
 			cout << "Value: " << this->connections->cons[i]->getValue() << endl;
-
 		}
 
 		for (i = 0; i < count; ++i)
 		{
-			vector<bits> outs;
+			vector<bits*> outs;
 			outs = this->connections->cons[i]->getNextValues();
 			//ted zname èasy a stavy, ktere mame na teto sbìrnici nastavit
 
@@ -55,24 +55,31 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 
 			for (j = 0; j < count2; ++j)
 			{
-				cout << "In time: " << elapsedTime + outs[j].time << " set Bus ";
-				cout <<  ((class Connect*)outs[j].c)->getName() << ": ";
-				cout << "Value: " << outs[j].b << endl;
-			}
+				//cout << "In time: " << elapsedTime + outs[j]->time << " set Bus ";
+				//cout <<  ((Connect*)outs[j]->c)->getName() << ": ";
+				//cout << "Value: " << outs[j]->b << endl;
 
-			//ted probìhl dotaz na všechny hradla, ty aktualizovaly pøípadnì stav sbìrnice a nyní je potøeba sbìrnici nastavit do nového stavu
-			//this->connections->cons[i]->setValue(b);
+				SchedulerEvent *e = (SchedulerEvent*)outs[j];
+				e->time += elapsedTime;
+				scheduler->addEvent(e);			//naplanoval udalost
+			}
 		}
 
 		cout << endl;
 
-		//prochazi jednotlivé propojení a zjistí jejich stav (X, L, H) a nastaví nový stav pøípadnì, to vše za použití metod set/getValue
+		if (scheduler->isEmpty())
+		{
+			break;			//nic neni, co by se zmenilo, simulace muze skonèit
+		}
 		
-		elapsedTime += resolution;		//zde bude posun na èas další nejbližší události v kalendáøi  
-		
-		//neplatne
-		//zde bude posun case dle planovani dalsi nadchazejici udalosti, udalosti bude 
-		//vlastne nastaveni sbernice na nejakou konkretní hodnotu, time manager teda bude pøíjmat kdy to má provést, 
-		//co má vložit na sbìrnici a na kterou sbìrnici to má udìlat
+		SchedulerEvent* e = scheduler->getNextEvent();
+
+		//provedeni akci
+		bit b = e->b;
+		Connect *c = (Connect*)e->c;
+
+		c->setValue(b);
+
+		this->elapsedTime = e->time; //novy simulaèní èas
 	}
 }

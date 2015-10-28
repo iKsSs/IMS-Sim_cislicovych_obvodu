@@ -8,13 +8,13 @@ Connect::Connect()
 	this->state = X;
 }
 
-vector<bits> Connect::getNextValues()
+vector<bits*> Connect::getNextValues()
 {
 	//LogicsTable *lt = LogicsTable::instance();
 	//int count = this->pins.size();
 	int count = this->nodePins.size();
 	int i;
-	vector<bits> nextValue;
+	vector<bits*> nextValue;
 
 	for (i = 0; i < count; ++i)
 	{
@@ -30,12 +30,12 @@ vector<bits> Connect::getNextValues()
 
 			//if (ll != NULL)
 			//{
-			bits val;
+			bits *val = new bits;
 			//val.time = ll->getDelta();
-			val.time = tmp.l->getDelta();
+			val->time = tmp.l->getDelta();
 			//val.b = ll->getY();
-			val.b = tmp.l->getY();
-			val.c = this;
+			val->b = tmp.l->getY();
+			val->c = this;
 
 			//existuje už záznam z tímto èasem?
 			int count2 = nextValue.size();
@@ -48,11 +48,11 @@ vector<bits> Connect::getNextValues()
 
 			for (j = 0; j < count2; ++j)
 			{
-				if (nextValue[j].time == val.time)		//záznam existuje, jen kontroluji, zda se hradla, které v tento èas vkládají, shodla
+				if (nextValue[j]->time == val->time)		//záznam existuje, jen kontroluji, zda se hradla, které v tento èas vkládají, shodla
 				{
-					if ((nextValue[j].b == X) || (nextValue[j].b == L && val.b == L) || (nextValue[j].b == H && val.b == H))
+					if ((nextValue[j]->b == X) || (nextValue[j]->b == L && val->b == L) || (nextValue[j]->b == H && val->b == H))
 					{
-						nextValue[j].b = val.b;
+						nextValue[j]->b = val->b;
 					}
 					else
 					{
