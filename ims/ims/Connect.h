@@ -10,8 +10,9 @@ using namespace std;
 
 typedef struct
 {
-	unsigned int time;
-	bit b;
+	unsigned int time;		//kdy
+	bit b;					//na co
+	void *c;				//koho (void ukazatel je zde použít, protože ještì není známa tøída connect, nicménì tøída connect tuto strukturu využívá a proto musí být uvedena pøed ní
 } bits;
 
 typedef struct

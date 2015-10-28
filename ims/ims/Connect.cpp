@@ -35,6 +35,7 @@ vector<bits> Connect::getNextValues()
 			val.time = tmp.l->getDelta();
 			//val.b = ll->getY();
 			val.b = tmp.l->getY();
+			val.c = this;
 
 			//existuje už záznam z tímto èasem?
 			int count2 = nextValue.size();

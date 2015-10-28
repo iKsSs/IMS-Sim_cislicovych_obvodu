@@ -18,7 +18,6 @@ void Connections::add(Connect *c)
 Connect* Connections::search(string name)
 {
 	int count = this->cons.size();
-	int i;
 
 	for (int i = 0; i < count; ++i)
 	{

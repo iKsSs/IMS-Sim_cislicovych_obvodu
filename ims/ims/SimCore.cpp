@@ -44,8 +44,6 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 
 		}
 
-		
-
 		for (i = 0; i < count; ++i)
 		{
 			vector<bits> outs;
@@ -58,13 +56,9 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 			for (j = 0; j < count2; ++j)
 			{
 				cout << "In time: " << elapsedTime + outs[j].time << " set Bus ";
-				cout <<  this->connections->cons[i]->getName() << ": ";
+				cout <<  ((class Connect*)outs[j].c)->getName() << ": ";
 				cout << "Value: " << outs[j].b << endl;
-
-				//prasárna
-				//this->connections->cons[i]->setValue(outs[j].b);
 			}
-
 
 			//ted probìhl dotaz na všechny hradla, ty aktualizovaly pøípadnì stav sbìrnice a nyní je potøeba sbìrnici nastavit do nového stavu
 			//this->connections->cons[i]->setValue(b);
@@ -74,7 +68,10 @@ void SimCore::run()									//a nebo parametry simulace tady místo do konstrukto
 
 		//prochazi jednotlivé propojení a zjistí jejich stav (X, L, H) a nastaví nový stav pøípadnì, to vše za použití metod set/getValue
 		
-		elapsedTime += resolution;   //zde bude posun case dle planovani dalsi nadchazejici udalosti, udalosti bude 
+		elapsedTime += resolution;		//zde bude posun na èas další nejbližší události v kalendáøi  
+		
+		//neplatne
+		//zde bude posun case dle planovani dalsi nadchazejici udalosti, udalosti bude 
 		//vlastne nastaveni sbernice na nejakou konkretní hodnotu, time manager teda bude pøíjmat kdy to má provést, 
 		//co má vložit na sbìrnici a na kterou sbìrnici to má udìlat
 	}
