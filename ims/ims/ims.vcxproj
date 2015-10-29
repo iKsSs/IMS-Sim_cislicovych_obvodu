@@ -148,8 +148,10 @@
     <ClCompile Include="Logic.cpp" />
     <ClCompile Include="LogicsTable.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="NAND.cpp" />
     <ClCompile Include="NOT.cpp" />
     <ClCompile Include="OR.cpp" />
+    <ClCompile Include="PlotCreator.cpp" />
     <ClCompile Include="scanner.cpp" />
     <ClCompile Include="Scheduler.cpp" />
     <ClCompile Include="SimCore.cpp" />
@@ -160,8 +162,10 @@
     <ClInclude Include="Connections.h" />
     <ClInclude Include="Logic.h" />
     <ClInclude Include="LogicsTable.h" />
+    <ClInclude Include="NAND.h" />
     <ClInclude Include="NOT.h" />
     <ClInclude Include="OR.h" />
+    <ClInclude Include="PlotCreator.h" />
     <ClInclude Include="scanner.h" />
     <ClInclude Include="Scheduler.h" />
     <ClInclude Include="SimCore.h" />

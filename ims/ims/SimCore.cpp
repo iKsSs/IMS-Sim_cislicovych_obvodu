@@ -1,5 +1,6 @@
 #include "SimCore.h"
 #include "Scheduler.h"
+#include "PlotCreator.h"
 
 #include <iostream>
 
@@ -40,6 +41,7 @@ void SimCore::printResult()
 void SimCore::run()
 {
 	Scheduler *scheduler = Scheduler::instance();
+	PlotCreator plot("test.dat");
 
 	while (this->elapsedTime <= this->time)
 	{
@@ -82,9 +84,12 @@ void SimCore::run()
 
 		cout << "Now: " << endl;
 		printResult();
+		plot.writeState(elapsedTime);
 
 		cout << endl << endl;
 
 		//co naplanoval:
 	}
+
+	plot.closeFile();
 }
