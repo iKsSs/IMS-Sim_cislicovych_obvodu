@@ -41,7 +41,7 @@ void SimCore::printResult()
 void SimCore::run()
 {
 	Scheduler *scheduler = Scheduler::instance();
-	PlotCreator plot("test.dat");
+	PlotCreator plot("test", this->time);
 
 	while (this->elapsedTime <= this->time)
 	{

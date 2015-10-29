@@ -1,8 +1,12 @@
 #include "PlotCreator.h"
 
-PlotCreator::PlotCreator(string filename)
+PlotCreator::PlotCreator(string filename, unsigned int time)
 {
-	this->file.open(filename);
+	this->filename = filename;
+	this->time = time;
+
+	this->file.open(this->filename + ".dat");
+	this->script.open(this->filename + ".plt");
 
 	Connections *c = Connections::instance();
 
@@ -61,4 +65,28 @@ void PlotCreator::closeFile()
 	}
 
 	this->file.close();
+
+	//vytvoøí soubor skriptu pro spuštìní grafu v gnuplotu
+
+	this->script << "set yrange[-1:3]" << endl;
+	this->script << "set key left bottom" << endl;
+	this->script << "set xtics" << endl;
+	this->script << "set ytics" << endl;
+
+	//výpoèet layoutu
+
+	int l1 = count / 2;
+	int l2 = count / l1;
+	l1 += count % 2;
+
+	this->script << "set multiplot layout 2,2" << endl;
+
+	for (i = 0; i < count; ++i)
+	{
+		this->script << "plot '" << filename << ".dat' index " << i << " with steps title columnheader(1)" << endl;
+	}
+
+	this->script << "unset multiplot" << endl;
+
+	this->script.close();
 }

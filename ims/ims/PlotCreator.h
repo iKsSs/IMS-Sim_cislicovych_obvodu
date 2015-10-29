@@ -23,10 +23,13 @@ class PlotCreator
 {
 private:
 	ofstream file;
+	ofstream script;
 	vector<PlotRecords> records;
+	string filename;
+	unsigned int time;
 
 public:
-	PlotCreator(string);
+	PlotCreator(string, unsigned int);
 	void writeState(unsigned int);
 	void closeFile();
 };

@@ -19,6 +19,9 @@ LogicsTable* LogicsTable::pInstance = NULL;			//prvotni inicializace instance ta
 Connections* Connections::pInstance = NULL;			//prvotni inicializace instance tabulky propojeni 
 Scheduler* Scheduler::pInstance = NULL;				//prvotni incicializace instance plánovaèe
 
+string netlist;
+string simout;
+
 int main(void)
 {	
 	//test {

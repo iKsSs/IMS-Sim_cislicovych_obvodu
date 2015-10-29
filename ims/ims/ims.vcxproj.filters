@@ -52,7 +52,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="NAND.cpp">
-      <Filter>Header Files</Filter>
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="NOR.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -90,6 +93,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NAND.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="NOR.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

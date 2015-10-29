@@ -149,6 +149,7 @@
     <ClCompile Include="LogicsTable.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="NAND.cpp" />
+    <ClCompile Include="NOR.cpp" />
     <ClCompile Include="NOT.cpp" />
     <ClCompile Include="OR.cpp" />
     <ClCompile Include="PlotCreator.cpp" />
@@ -163,6 +164,7 @@
     <ClInclude Include="Logic.h" />
     <ClInclude Include="LogicsTable.h" />
     <ClInclude Include="NAND.h" />
+    <ClInclude Include="NOR.h" />
     <ClInclude Include="NOT.h" />
     <ClInclude Include="OR.h" />
     <ClInclude Include="PlotCreator.h" />
