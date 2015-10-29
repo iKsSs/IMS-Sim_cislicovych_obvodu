@@ -1,5 +1,6 @@
 #include <locale>         // std::locale, std::tolower
 #include <iostream>
+#include <string.h>
 
 /**
 * @brief Definice typu tokenu

@@ -96,7 +96,7 @@ int main(void)
 	
 	sim.run();
 
-	system("pause");
+	//system("pause");
 
 	//} test
 }

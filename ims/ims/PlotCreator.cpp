@@ -5,8 +5,8 @@ PlotCreator::PlotCreator(string filename, unsigned int time)
 	this->filename = filename;
 	this->time = time;
 
-	this->file.open(this->filename + ".dat");
-	this->script.open(this->filename + ".plt");
+	this->file.open((this->filename + ".dat").c_str());
+	this->script.open((this->filename + ".plt").c_str());
 
 	Connections *c = Connections::instance();
 
