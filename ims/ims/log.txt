@@ -4,6 +4,7 @@ Set bus name: con3to value: 1
 Set bus name: con4to value: 0
 Set bus name: con5to value: 0
 Set bus name: con6to value: 1
+
 Now: 
 Time: 0: Bus con1: Value: 0
 Time: 0: Bus con2: Value: 0
@@ -14,14 +15,9 @@ Time: 0: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 2 set bus name: con3 to value: 0
-In time: 2 set bus name: con4 to value: 0
-In time: 1 set bus name: con5 to value: 0
-In time: 1 set bus name: con6 to value: 1
-
-
 Set bus name: con5to value: 0
+Set bus name: con6to value: 1
+
 Now: 
 Time: 1: Bus con1: Value: 0
 Time: 1: Bus con2: Value: 0
@@ -32,20 +28,11 @@ Time: 1: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 2 set bus name: con3 to value: 0
-In time: 2 set bus name: con4 to value: 0
-In time: 1 set bus name: con5 to value: 0
-In time: 1 set bus name: con6 to value: 1
-In time: 3 set bus name: con3 to value: 0
-In time: 3 set bus name: con4 to value: 0
-In time: 2 set bus name: con5 to value: 0
-In time: 2 set bus name: con6 to value: 1
-
-
+Set bus name: con3to value: 0
+Set bus name: con4to value: 0
 Set bus name: con5to value: 0
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 2: Bus con1: Value: 0
 Time: 2: Bus con2: Value: 0
@@ -56,52 +43,26 @@ Time: 2: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 2 set bus name: con3 to value: 0
-In time: 2 set bus name: con4 to value: 0
-In time: 3 set bus name: con3 to value: 0
-In time: 3 set bus name: con4 to value: 0
-In time: 2 set bus name: con5 to value: 0
-In time: 2 set bus name: con6 to value: 1
-In time: 4 set bus name: con3 to value: 0
-In time: 4 set bus name: con4 to value: 0
-In time: 3 set bus name: con5 to value: 1
-In time: 3 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
-Set bus name: con5to value: 0
+Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 3: Bus con1: Value: 0
 Time: 3: Bus con2: Value: 0
 Time: 3: Bus con3: Value: 0
 Time: 3: Bus con4: Value: 0
-Time: 3: Bus con5: Value: 0
+Time: 3: Bus con5: Value: 1
 Time: 3: Bus con6: Value: 1
 
-
-
-Print scheduler:
-In time: 3 set bus name: con3 to value: 0
-In time: 3 set bus name: con4 to value: 0
-In time: 4 set bus name: con3 to value: 0
-In time: 4 set bus name: con4 to value: 0
-In time: 3 set bus name: con5 to value: 1
-In time: 3 set bus name: con6 to value: 1
-In time: 5 set bus name: con3 to value: 0
-In time: 5 set bus name: con4 to value: 0
-In time: 4 set bus name: con5 to value: 1
-In time: 4 set bus name: con6 to value: 1
 
 
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 4: Bus con1: Value: 0
 Time: 4: Bus con2: Value: 0
@@ -112,24 +73,11 @@ Time: 4: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 4 set bus name: con3 to value: 0
-In time: 4 set bus name: con4 to value: 0
-In time: 5 set bus name: con3 to value: 0
-In time: 5 set bus name: con4 to value: 0
-In time: 4 set bus name: con5 to value: 1
-In time: 4 set bus name: con6 to value: 1
-In time: 6 set bus name: con3 to value: 0
-In time: 6 set bus name: con4 to value: 0
-In time: 5 set bus name: con5 to value: 1
-In time: 5 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 5: Bus con1: Value: 0
 Time: 5: Bus con2: Value: 0
@@ -140,24 +88,11 @@ Time: 5: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 5 set bus name: con3 to value: 0
-In time: 5 set bus name: con4 to value: 0
-In time: 6 set bus name: con3 to value: 0
-In time: 6 set bus name: con4 to value: 0
-In time: 5 set bus name: con5 to value: 1
-In time: 5 set bus name: con6 to value: 1
-In time: 7 set bus name: con3 to value: 0
-In time: 7 set bus name: con4 to value: 0
-In time: 6 set bus name: con5 to value: 1
-In time: 6 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 6: Bus con1: Value: 0
 Time: 6: Bus con2: Value: 0
@@ -168,24 +103,11 @@ Time: 6: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 6 set bus name: con3 to value: 0
-In time: 6 set bus name: con4 to value: 0
-In time: 7 set bus name: con3 to value: 0
-In time: 7 set bus name: con4 to value: 0
-In time: 6 set bus name: con5 to value: 1
-In time: 6 set bus name: con6 to value: 1
-In time: 8 set bus name: con3 to value: 0
-In time: 8 set bus name: con4 to value: 0
-In time: 7 set bus name: con5 to value: 1
-In time: 7 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 7: Bus con1: Value: 0
 Time: 7: Bus con2: Value: 0
@@ -196,24 +118,11 @@ Time: 7: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 7 set bus name: con3 to value: 0
-In time: 7 set bus name: con4 to value: 0
-In time: 8 set bus name: con3 to value: 0
-In time: 8 set bus name: con4 to value: 0
-In time: 7 set bus name: con5 to value: 1
-In time: 7 set bus name: con6 to value: 1
-In time: 9 set bus name: con3 to value: 0
-In time: 9 set bus name: con4 to value: 0
-In time: 8 set bus name: con5 to value: 1
-In time: 8 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 8: Bus con1: Value: 0
 Time: 8: Bus con2: Value: 0
@@ -224,24 +133,11 @@ Time: 8: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 8 set bus name: con3 to value: 0
-In time: 8 set bus name: con4 to value: 0
-In time: 9 set bus name: con3 to value: 0
-In time: 9 set bus name: con4 to value: 0
-In time: 8 set bus name: con5 to value: 1
-In time: 8 set bus name: con6 to value: 1
-In time: 10 set bus name: con3 to value: 0
-In time: 10 set bus name: con4 to value: 0
-In time: 9 set bus name: con5 to value: 1
-In time: 9 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 9: Bus con1: Value: 0
 Time: 9: Bus con2: Value: 0
@@ -252,24 +148,11 @@ Time: 9: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 9 set bus name: con3 to value: 0
-In time: 9 set bus name: con4 to value: 0
-In time: 10 set bus name: con3 to value: 0
-In time: 10 set bus name: con4 to value: 0
-In time: 9 set bus name: con5 to value: 1
-In time: 9 set bus name: con6 to value: 1
-In time: 11 set bus name: con3 to value: 0
-In time: 11 set bus name: con4 to value: 0
-In time: 10 set bus name: con5 to value: 1
-In time: 10 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 10: Bus con1: Value: 0
 Time: 10: Bus con2: Value: 0
@@ -280,24 +163,11 @@ Time: 10: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 10 set bus name: con3 to value: 0
-In time: 10 set bus name: con4 to value: 0
-In time: 11 set bus name: con3 to value: 0
-In time: 11 set bus name: con4 to value: 0
-In time: 10 set bus name: con5 to value: 1
-In time: 10 set bus name: con6 to value: 1
-In time: 12 set bus name: con3 to value: 0
-In time: 12 set bus name: con4 to value: 0
-In time: 11 set bus name: con5 to value: 1
-In time: 11 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 11: Bus con1: Value: 0
 Time: 11: Bus con2: Value: 0
@@ -308,24 +178,11 @@ Time: 11: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 11 set bus name: con3 to value: 0
-In time: 11 set bus name: con4 to value: 0
-In time: 12 set bus name: con3 to value: 0
-In time: 12 set bus name: con4 to value: 0
-In time: 11 set bus name: con5 to value: 1
-In time: 11 set bus name: con6 to value: 1
-In time: 13 set bus name: con3 to value: 0
-In time: 13 set bus name: con4 to value: 0
-In time: 12 set bus name: con5 to value: 1
-In time: 12 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 12: Bus con1: Value: 0
 Time: 12: Bus con2: Value: 0
@@ -336,24 +193,11 @@ Time: 12: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 12 set bus name: con3 to value: 0
-In time: 12 set bus name: con4 to value: 0
-In time: 13 set bus name: con3 to value: 0
-In time: 13 set bus name: con4 to value: 0
-In time: 12 set bus name: con5 to value: 1
-In time: 12 set bus name: con6 to value: 1
-In time: 14 set bus name: con3 to value: 0
-In time: 14 set bus name: con4 to value: 0
-In time: 13 set bus name: con5 to value: 1
-In time: 13 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 13: Bus con1: Value: 0
 Time: 13: Bus con2: Value: 0
@@ -364,24 +208,11 @@ Time: 13: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 13 set bus name: con3 to value: 0
-In time: 13 set bus name: con4 to value: 0
-In time: 14 set bus name: con3 to value: 0
-In time: 14 set bus name: con4 to value: 0
-In time: 13 set bus name: con5 to value: 1
-In time: 13 set bus name: con6 to value: 1
-In time: 15 set bus name: con3 to value: 0
-In time: 15 set bus name: con4 to value: 0
-In time: 14 set bus name: con5 to value: 1
-In time: 14 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 14: Bus con1: Value: 0
 Time: 14: Bus con2: Value: 0
@@ -392,24 +223,11 @@ Time: 14: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 14 set bus name: con3 to value: 0
-In time: 14 set bus name: con4 to value: 0
-In time: 15 set bus name: con3 to value: 0
-In time: 15 set bus name: con4 to value: 0
-In time: 14 set bus name: con5 to value: 1
-In time: 14 set bus name: con6 to value: 1
-In time: 16 set bus name: con3 to value: 0
-In time: 16 set bus name: con4 to value: 0
-In time: 15 set bus name: con5 to value: 1
-In time: 15 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 15: Bus con1: Value: 0
 Time: 15: Bus con2: Value: 0
@@ -420,24 +238,11 @@ Time: 15: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 15 set bus name: con3 to value: 0
-In time: 15 set bus name: con4 to value: 0
-In time: 16 set bus name: con3 to value: 0
-In time: 16 set bus name: con4 to value: 0
-In time: 15 set bus name: con5 to value: 1
-In time: 15 set bus name: con6 to value: 1
-In time: 17 set bus name: con3 to value: 0
-In time: 17 set bus name: con4 to value: 0
-In time: 16 set bus name: con5 to value: 1
-In time: 16 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 16: Bus con1: Value: 0
 Time: 16: Bus con2: Value: 0
@@ -448,24 +253,11 @@ Time: 16: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 16 set bus name: con3 to value: 0
-In time: 16 set bus name: con4 to value: 0
-In time: 17 set bus name: con3 to value: 0
-In time: 17 set bus name: con4 to value: 0
-In time: 16 set bus name: con5 to value: 1
-In time: 16 set bus name: con6 to value: 1
-In time: 18 set bus name: con3 to value: 0
-In time: 18 set bus name: con4 to value: 0
-In time: 17 set bus name: con5 to value: 1
-In time: 17 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 17: Bus con1: Value: 0
 Time: 17: Bus con2: Value: 0
@@ -476,24 +268,11 @@ Time: 17: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 17 set bus name: con3 to value: 0
-In time: 17 set bus name: con4 to value: 0
-In time: 18 set bus name: con3 to value: 0
-In time: 18 set bus name: con4 to value: 0
-In time: 17 set bus name: con5 to value: 1
-In time: 17 set bus name: con6 to value: 1
-In time: 19 set bus name: con3 to value: 0
-In time: 19 set bus name: con4 to value: 0
-In time: 18 set bus name: con5 to value: 1
-In time: 18 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 18: Bus con1: Value: 0
 Time: 18: Bus con2: Value: 0
@@ -504,24 +283,11 @@ Time: 18: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 18 set bus name: con3 to value: 0
-In time: 18 set bus name: con4 to value: 0
-In time: 19 set bus name: con3 to value: 0
-In time: 19 set bus name: con4 to value: 0
-In time: 18 set bus name: con5 to value: 1
-In time: 18 set bus name: con6 to value: 1
-In time: 20 set bus name: con3 to value: 0
-In time: 20 set bus name: con4 to value: 0
-In time: 19 set bus name: con5 to value: 1
-In time: 19 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 19: Bus con1: Value: 0
 Time: 19: Bus con2: Value: 0
@@ -532,24 +298,11 @@ Time: 19: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 19 set bus name: con3 to value: 0
-In time: 19 set bus name: con4 to value: 0
-In time: 20 set bus name: con3 to value: 0
-In time: 20 set bus name: con4 to value: 0
-In time: 19 set bus name: con5 to value: 1
-In time: 19 set bus name: con6 to value: 1
-In time: 21 set bus name: con3 to value: 0
-In time: 21 set bus name: con4 to value: 0
-In time: 20 set bus name: con5 to value: 1
-In time: 20 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 20: Bus con1: Value: 0
 Time: 20: Bus con2: Value: 0
@@ -560,24 +313,11 @@ Time: 20: Bus con6: Value: 1
 
 
 
-Print scheduler:
-In time: 20 set bus name: con3 to value: 0
-In time: 20 set bus name: con4 to value: 0
-In time: 21 set bus name: con3 to value: 0
-In time: 21 set bus name: con4 to value: 0
-In time: 20 set bus name: con5 to value: 1
-In time: 20 set bus name: con6 to value: 1
-In time: 22 set bus name: con3 to value: 0
-In time: 22 set bus name: con4 to value: 0
-In time: 21 set bus name: con5 to value: 1
-In time: 21 set bus name: con6 to value: 1
-
-
 Set bus name: con3to value: 0
 Set bus name: con4to value: 0
 Set bus name: con5to value: 1
 Set bus name: con6to value: 1
-Set bus name: con3to value: 0
+
 Now: 
 Time: 21: Bus con1: Value: 0
 Time: 21: Bus con2: Value: 0
@@ -586,19 +326,6 @@ Time: 21: Bus con4: Value: 0
 Time: 21: Bus con5: Value: 1
 Time: 21: Bus con6: Value: 1
 
-
-
-Print scheduler:
-In time: 21 set bus name: con3 to value: 0
-In time: 21 set bus name: con4 to value: 0
-In time: 22 set bus name: con3 to value: 0
-In time: 22 set bus name: con4 to value: 0
-In time: 21 set bus name: con5 to value: 1
-In time: 21 set bus name: con6 to value: 1
-In time: 23 set bus name: con3 to value: 0
-In time: 23 set bus name: con4 to value: 0
-In time: 22 set bus name: con5 to value: 1
-In time: 22 set bus name: con6 to value: 1
 
 
 PokraŸujte stisknut¡m libovoln‚ kl vesy... 

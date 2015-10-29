@@ -31,6 +31,13 @@ typedef struct
 }
 SchedulerEvent;
 
+typedef struct
+{
+	vector<SchedulerEvent*> events;
+	unsigned int time;
+}
+SchedulerEvents;
+
 /**
 * Tøída popisující plánovaè.
 */
@@ -58,7 +65,7 @@ public:
 	/**
 	* Vektor událostí.
 	*/
-	vector<SchedulerEvent*> q;
+	vector<SchedulerEvents*> q;
 
 	/**
 	* Pøidání nové události.
@@ -70,7 +77,7 @@ public:
 	* Vrácení nejbližší a nejdøívìji možné naplánované události.
 	* @return		SchedulerEvent*			událost
 	*/
-	SchedulerEvent *getNextEvent();
+	SchedulerEvents* getNextEvents();
 
 	void popEvent();
 

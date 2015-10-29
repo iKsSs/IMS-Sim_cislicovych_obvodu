@@ -43,26 +43,21 @@ void SimCore::run()
 
 	while (this->elapsedTime <= this->time)
 	{
-		SchedulerEvent* e;
+		SchedulerEvents* e = scheduler->getNextEvents();
 
-		while(!scheduler->isEmpty())			//provede všechny události v daný simulaèní èas
+		for (int i = 0; i < e->events.size(); ++i)
 		{
-			e = scheduler->getNextEvent();
+			elapsedTime = e->time;		//novy simulaèní èas
 
-			bit b = e->b;
-			Connect *c = (Connect*)e->c;
+			bit b = e->events[i]->b;
+			Connect *c = (Connect*)e->events[i]->c;
 
 			c->setValue(b);
 
-			cout << "Set bus name: " << c->getName() <<  "to value: " << e->b << endl;
-
-			if (e->time > this->elapsedTime)
-				break;
-
-			scheduler->popEvent();
+			cout << "Set bus name: " << c->getName() << "to value: " << e->events[i]->b << endl;
 		}
 
-		elapsedTime = e->time;		//novy simulaèní èas
+		cout << endl;
 
 		//pøepoèet modelu
 		int count = this->connections->cons.size();
@@ -91,15 +86,5 @@ void SimCore::run()
 		cout << endl << endl;
 
 		//co naplanoval:
-
-		cout << "Print scheduler:" << endl;
-		for (int i = 0; i < scheduler->q.size(); ++i)
-		{
-			cout << "In time: " << scheduler->q[i]->time;
-			cout << " set bus name: " << ((Connect*)(scheduler->q[i]->c))->getName();
-			cout << " to value: " << scheduler->q[i]->b << endl;
-
-		}
-		cout << endl << endl;
 	}
 }
