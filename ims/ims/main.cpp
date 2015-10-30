@@ -47,10 +47,10 @@ int main(void)
 	Connect *con4 = new Connect();
 	Connect *clk = new Connect();
 
-	con1->setName("con1");
-	con2->setName("con2");
-	con3->setName("con3");
-	con4->setName("con4");
+	con1->setName("!S");
+	con2->setName("'R");
+	con3->setName("Q");
+	con4->setName("!Q");
 	clk->setName("clk");
 
 	con1->addToNode(nand1, 'a');
@@ -89,6 +89,22 @@ int main(void)
 	s4->c = con4;
 	s4->time = 0;
 	scheduler->addEvent(s4);
+
+	//KO je ve stavu SET
+
+	//nastavim pamatovani stavu
+
+	SchedulerEvent *s5 = new SchedulerEvent;
+	s5->b = H;
+	s5->c = con1;
+	s5->time = 6;
+	scheduler->addEvent(s5);
+
+	SchedulerEvent *s6 = new SchedulerEvent;
+	s6->b = H;
+	s6->c = con2;
+	s6->time = 6;
+	scheduler->addEvent(s6);
 
 	ct->add(con1);
 	ct->add(con2);
