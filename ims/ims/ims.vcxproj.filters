@@ -57,6 +57,9 @@
     <ClCompile Include="NOR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CLKgen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Logic.h">
@@ -96,6 +99,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NOR.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CLKGen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

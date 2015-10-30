@@ -1,0 +1,29 @@
+#include "CLKgen.h"
+
+CLKgen::CLKgen(unsigned int period, unsigned int max_time, Connect *clk)
+{
+	if (period % 2 != 0)
+	{
+		throw("Perioda musí být dìlitelná 2.\n");
+	}
+	
+	this->scheduler = Scheduler::instance();
+
+	for (unsigned int i = 0; i <= max_time; i += period)
+	{
+		SchedulerEvent *eL = new SchedulerEvent;
+		SchedulerEvent *eH = new SchedulerEvent;
+		
+		eL->b = L;
+		eL->c = clk;
+		eL->time = i;
+
+		this->scheduler->addEvent(eL);
+
+		eH->b = H;
+		eH->c = clk;
+		eH->time = i + (period / 2);
+
+		this->scheduler->addEvent(eH);
+	}
+}

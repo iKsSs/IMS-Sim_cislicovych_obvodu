@@ -13,6 +13,9 @@ Author: Martin Pitøík
 Rev: 2
 */
 
+#ifndef __SCHEDULER_
+#define __SCHEDULER_
+
 #include "Logic.h"
 
 #include <queue>
@@ -87,3 +90,5 @@ public:
 	*/
 	bool isEmpty();
 };
+
+#endif

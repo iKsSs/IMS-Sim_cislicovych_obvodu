@@ -79,7 +79,7 @@ void PlotCreator::closeFile()
 	int l2 = count / l1;
 	l1 += count % 2;
 
-	this->script << "set multiplot layout 2,2" << endl;
+	this->script << "set multiplot layout " << l1 << "," << l2 << endl;
 
 	for (i = 0; i < count; ++i)
 	{

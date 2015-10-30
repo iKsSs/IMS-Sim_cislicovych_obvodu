@@ -9,6 +9,7 @@
 #include "SimCore.h"
 #include "Scheduler.h"
 #include "PlotCreator.h"
+#include "CLKgen.h"
 
 #include <iostream>
 #include <vector>
@@ -44,11 +45,13 @@ int main(void)
 	Connect *con2 = new Connect();
 	Connect *con3 = new Connect();
 	Connect *con4 = new Connect();
+	Connect *clk = new Connect();
 
 	con1->setName("con1");
 	con2->setName("con2");
 	con3->setName("con3");
 	con4->setName("con4");
+	clk->setName("clk");
 
 	con1->addToNode(nand1, 'a');
 	con2->addToNode(nand2, 'b');
@@ -58,6 +61,8 @@ int main(void)
 	con4->addToNode(nand1, 'b');
 
 	//prvotni inicializace sbìrnic do plánovaèe
+
+	CLKgen clkgen(2, 10, clk);
 
 	Scheduler* scheduler = Scheduler::instance();
 
@@ -89,6 +94,7 @@ int main(void)
 	ct->add(con2);
 	ct->add(con3);
 	ct->add(con4);
+	ct->add(clk);
 
 	//zde bude sestavena struktura se scanneru
 
