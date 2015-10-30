@@ -17,9 +17,9 @@ void Connections::add(Connect *c)
 
 Connect* Connections::search(string name)
 {
-	int count = this->cons.size();
+	unsigned int count = this->cons.size();
 
-	for (int i = 0; i < count; ++i)
+	for (unsigned int i = 0; i < count; ++i)
 	{
 		Connect* tmp = this->cons[i];
 

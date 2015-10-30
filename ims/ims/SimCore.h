@@ -37,9 +37,8 @@ typedef enum
 class SimCore
 {
 private:
-	int resolution;
-	int time;
-	int elapsedTime;
+	unsigned int time;
+	unsigned int elapsedTime;
 	LogicsTable *logicTable;
 	Connections *connections;
 
@@ -51,7 +50,7 @@ public:
 	* @param		int				èas simulace
 	* @param		int				rozlišení simulace (není použito)
 	*/
-	SimCore(SIM_TYPE, int, int);		//odkazy od tabulek si veme
+	SimCore(SIM_TYPE, int);			//odkazy od tabulek si veme
 
 	/**
 	* Spuštìní simulace

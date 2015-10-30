@@ -4,14 +4,11 @@
 
 #include <iostream>
 
-SimCore::SimCore(SIM_TYPE, int time, int resolution)
+SimCore::SimCore(SIM_TYPE, int time)
 {
-	if (time < 0 || resolution < 0) throw("Chyba parametrù simulace.\n");
-	if (time <= resolution) throw("Chyba parametrù simulace.\n");
+	if (time < 0) throw("Chyba parametrù simulace.\n");
 
-	this->resolution = resolution;
 	this->time = time;
-
 	this->elapsedTime = 0;
 
 	this->logicTable = LogicsTable::instance();
@@ -21,8 +18,8 @@ SimCore::SimCore(SIM_TYPE, int time, int resolution)
 void SimCore::printResult()
 {
 	//vypis hodnot se sbìrnice
-	int count = this->connections->cons.size();
-	int i;
+	unsigned int count = this->connections->cons.size();
+	unsigned int i;
 
 	for (i = 0; i < count; ++i)
 	{
@@ -43,13 +40,23 @@ void SimCore::run()
 	Scheduler *scheduler = Scheduler::instance();
 	PlotCreator plot("test", this->time);
 
-	while (this->elapsedTime <= this->time)
+	while (true)
 	{
+		if (scheduler->isEmpty())
+		{
+			break;
+		}
+		
 		SchedulerEvents* e = scheduler->getNextEvents();
 
-		for (int i = 0; i < e->events.size(); ++i)
+		if (e->time > this->time)
 		{
-			elapsedTime = e->time;		//novy simulaèní èas
+			break;
+		}
+
+		for (unsigned int i = 0; i < e->events.size(); ++i)
+		{
+			this->elapsedTime = e->time;		//novy simulaèní èas
 
 			bit b = e->events[i]->b;
 			Connect *c = (Connect*)e->events[i]->c;
@@ -62,16 +69,16 @@ void SimCore::run()
 		cout << endl;
 
 		//pøepoèet modelu
-		int count = this->connections->cons.size();
+		unsigned int count = this->connections->cons.size();
 
-		for (int i = 0; i < count; ++i)
+		for (unsigned int i = 0; i < count; ++i)
 		{
 			vector<bits*> outs;
 			outs = this->connections->cons[i]->getNextValues();
 			//ted zname èasy a stavy, ktere mame na teto sbìrnici nastavit
 
-			int count2 = outs.size();
-			int j;
+			unsigned int count2 = outs.size();
+			unsigned int j;
 
 			for (j = 0; j < count2; ++j)
 			{

@@ -12,9 +12,9 @@ Connect::Connect()
 vector<bits*> Connect::getNextValues()
 {
 	//LogicsTable *lt = LogicsTable::instance();
-	//int count = this->pins.size();
-	int count = this->nodePins.size();
-	int i;
+	//unsigned int count = this->pins.size();
+	unsigned int count = this->nodePins.size();
+	unsigned int i;
 	vector<bits*> nextValue;
 
 	for (i = 0; i < count; ++i)
@@ -39,8 +39,8 @@ vector<bits*> Connect::getNextValues()
 			val->c = this;
 
 			//existuje už záznam z tímto èasem?
-			int count2 = nextValue.size();
-			int j;
+			unsigned int count2 = nextValue.size();
+			unsigned int j;
 
 			if (count2 == 0)		//vklada prvni prvek
 			{
@@ -91,9 +91,9 @@ void Connect::setValue(bit b)
 
 	//LogicsTable *lt = LogicsTable::instance();
 
-	//int count = this->pins.size();
-	int count = this->nodePins.size();
-	int i;
+	//unsigned int count = this->pins.size();
+	unsigned int count = this->nodePins.size();
+	unsigned int i;
 
 	for (i = 0; i < count; ++i)
 	{

@@ -98,7 +98,7 @@ int main(void)
 
 	//zde bude sestavena struktura se scanneru
 
-	SimCore sim(KLO, 10, 1);
+	SimCore sim(KLO, 10);
 	
 	sim.run();
 

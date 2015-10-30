@@ -10,10 +10,10 @@ PlotCreator::PlotCreator(string filename, unsigned int time)
 
 	Connections *c = Connections::instance();
 
-	int count = c->cons.size();			//zjistí, kolik connections se sleduje
+	unsigned int count = c->cons.size();			//zjistí, kolik connections se sleduje
 	this->records.resize(count);		//a nastaví odpovídající sledovací historii
 
-	for (int i = 0; i < count; ++i)
+	for (unsigned int i = 0; i < count; ++i)
 	{
 		this->records[i].name = c->cons[i]->getName();
 	}
@@ -23,8 +23,8 @@ void PlotCreator::writeState(unsigned int time)
 {
 	Connections *c = Connections::instance();
 	
-	int i;
-	int count = c->cons.size();
+	unsigned int i;
+	unsigned int count = c->cons.size();
 
 	//zjisti stavy všech sbìrnic v daném èase a zapíše je do historie
 
@@ -41,8 +41,8 @@ void PlotCreator::writeState(unsigned int time)
 
 void PlotCreator::closeFile()
 {
-	int i;
-	int count = this->records.size();
+	unsigned int i;
+	unsigned int count = this->records.size();
 
 	for (i = 0; i < count; ++i)
 	{
@@ -51,8 +51,8 @@ void PlotCreator::closeFile()
 		this->file << "#" << endl;
 		this->file << "\"" << r.name << "\"" << endl;
 
-		int j;
-		int count2 = r.records.size();
+		unsigned int j;
+		unsigned int count2 = r.records.size();
 
 		for (j = 0; j < count2; ++j)
 		{
@@ -69,21 +69,22 @@ void PlotCreator::closeFile()
 	//vytvoøí soubor skriptu pro spuštìní grafu v gnuplotu
 
 	this->script << "set yrange[-1:3]" << endl;
+	this->script << "set xrange[0:" << this->time << "]" << endl;
 	this->script << "set key left bottom" << endl;
 	this->script << "set xtics" << endl;
 	this->script << "set ytics" << endl;
 
 	//výpoèet layoutu
 
-	int l1 = count / 2;
-	int l2 = count / l1;
+	unsigned int l1 = count / 2;
+	unsigned int l2 = count / l1;
 	l1 += count % 2;
 
 	this->script << "set multiplot layout " << l1 << "," << l2 << endl;
 
 	for (i = 0; i < count; ++i)
 	{
-		this->script << "plot '" << filename << ".dat' index " << i << " with steps title columnheader(1)" << endl;
+		this->script << "plot '" << this->filename << ".dat' index " << i << " with steps title columnheader(1)" << endl;
 	}
 
 	this->script << "unset multiplot" << endl;

@@ -13,8 +13,8 @@ Scheduler* Scheduler::instance()
 void Scheduler::addEvent(SchedulerEvent *e)
 {
 	//this->q.push_back(e);
-	int count = this->q.size();
-	int i;
+	unsigned int count = this->q.size();
+	unsigned int i;
 
 	for (i = 0; i < count; ++i)
 	{
@@ -42,7 +42,7 @@ SchedulerEvents* Scheduler::getNextEvents()		//rozhoduje poøadí vkládání do plán
 	SchedulerEvents* tmp = this->q.front();
 	this->min_index = 0;
 	
-	for (int i = 0; i < this->q.size(); ++i)
+	for (unsigned int i = 0; i < this->q.size(); ++i)
 	{
 		if (this->q[i]->time < tmp->time)
 		{
