@@ -17,6 +17,7 @@
 #include <iostream>
 #include <vector>
 
+
 using namespace std;
 
 LogicsTable* LogicsTable::pInstance = NULL;			//prvotni inicializace instance tabulky hradel
@@ -28,16 +29,29 @@ string simout;
 
 int main(int argc, const char* argv[])
 {	
-	Token *token = new Token(argv[1]);
-	Parser *parser = new Parser();
+	Token *token;
+	Parser *parser;
 
 	try {
+		if (argc < 2) { throw "wrong argument"; }
+
+		struct stat buffer;
+		string file = argv[1];
+	
+		if (stat(file.c_str(), &buffer) != 0)
+		{
+			throw "file unreachable";
+		}
+
+		token = new Token(file.c_str());
+		parser = new Parser();
+	
 		while (token->getType() != ENDFILE)
 		{
 			token->getTokenData();
 			//token->print();
 			parser->processToken(token);
-			parser->print();
+			//parser->print();
 		}
 
 		SimCore sim(KLO, parser->getTime());

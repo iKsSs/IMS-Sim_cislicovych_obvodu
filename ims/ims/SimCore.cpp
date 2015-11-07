@@ -63,7 +63,7 @@ void SimCore::run()
 
 			c->setValue(b);
 
-			cout << "Set bus name: " << c->getName() << "to value: " << e->events[i]->b << endl;
+			cout << "Set bus name: " << c->getName() << " to value: " << e->events[i]->b << endl;
 		}
 
 		cout << endl;
