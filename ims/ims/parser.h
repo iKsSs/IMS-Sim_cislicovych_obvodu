@@ -57,6 +57,7 @@ class Parser
 	Connect *con;
 
 	std::string msg;
+	std::string errMsg;
 
 public:
 	Parser() : time{ 0 }, state{ ST_NEW }, definition{ false } {
@@ -67,6 +68,7 @@ public:
 	void processToken(Token *token);
 	int getTime() { return this->time; }
 	void print() { if ( !msg.empty() ) std::cout << this->msg << std::endl; }
+	std::string getErrMsg() { return this->errMsg; }
 };
 
 #endif

@@ -4,7 +4,7 @@ CLKgen::CLKgen(unsigned int period, unsigned int max_time, Connect *clk)
 {
 	if (period % 2 != 0)
 	{
-		throw("Perioda musí být dìlitelná 2.\n");
+		throw "Period has to be divisible by 2";
 	}
 	
 	this->scheduler = Scheduler::instance();
