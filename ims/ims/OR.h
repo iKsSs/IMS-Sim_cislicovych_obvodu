@@ -1,3 +1,6 @@
+#ifndef IMS__OR
+#define IMS__OR
+
 /** @file OR.h*/
 
 /*************************************\
@@ -33,3 +36,5 @@ public:
 	*/
 	virtual bit getY();
 };
+
+#endif

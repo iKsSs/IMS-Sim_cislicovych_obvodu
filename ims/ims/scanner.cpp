@@ -13,9 +13,19 @@ Rev: 1
 
 #include "scanner.h"
 
+Token::Token(std::string file)
+{
+	this->file.open(file.c_str(), std::ios::in);
+}
+
+Token::~Token()
+{
+	this->file.close();
+}
+
 //definice pripustnych klicovych slov jazyka
 
-char keywords[][C_KEYWORDS] = { "begin", "end", "time", "clk", "and", "or", "not", "nand", "nor", "set", "add" };
+char keywords[][C_KEYWORDS] = { "begin", "end", "time", "clk", "and", "or", "not", "nand", "nor", "set", "add", "con" };
 
 //zjisti, zda retezec je klicove slovo
 
@@ -50,7 +60,23 @@ Token* Token::getTokenData(void)
 
 	while (1)
 	{
-		c = getc(stdin);
+		this->file.get(c);
+
+		if (file.eof())
+		{
+			if (state == ST_INIT || str == "END")
+			{
+				type = ENDFILE;
+				attr = "EOF";
+				return token;
+			}
+			else //chyba
+			{
+				type = ERR;
+				attr = "EOF-ERR";
+				return token;
+			}
+		}
 
 		switch (state)
 		{
@@ -59,12 +85,6 @@ Token* Token::getTokenData(void)
 			{
 				state = ST_INIT;
 			}
-			else if (c == EOF)			//jsme na konci
-			{
-				type = ENDFILE;
-
-				return token;
-			}
 			else if (c == '#')			//zacatek komentare
 			{
 				state = ST_COMMENT;
@@ -72,12 +92,14 @@ Token* Token::getTokenData(void)
 			else if (c == ',')
 			{
 				type = COM;
+				attr = ",";
 
 				return token;
 			}
 			else if (c == ';')
 			{
 				type = SEM;
+				attr = ";";
 
 				return token;
 			}
@@ -87,7 +109,7 @@ Token* Token::getTokenData(void)
 
 				state = ST_INT;
 			}
-			else if ((c == '_') || (isalpha(c)))
+			else if ((c == '_') || (isalpha(c)) || (c == '!'))
 			{
 				str.push_back(c);					//pridani znaku
 
@@ -95,7 +117,9 @@ Token* Token::getTokenData(void)
 			}
 			else
 			{
-				//chyba
+				type = ERR;
+				attr = "INIT-CHYBA";
+				return token;
 			}
 			break;
 
@@ -127,7 +151,7 @@ Token* Token::getTokenData(void)
 			else
 			{
 				//prislo uplne neco jineho, posledni znak zahodim a koncim v INT
-				//				fseek(source, -1, SEEK_CUR);
+				file.seekg(-1, std::ios_base::cur);
 
 				type = INT;
 				//zapisu cislo do atributu
@@ -145,7 +169,9 @@ Token* Token::getTokenData(void)
 			}
 			else
 			{
-				//chyba
+				type = ERR;
+				attr = "DOT-CHYBA";
+				return token;
 			}
 			break;
 		case ST_FRACT:
@@ -160,7 +186,7 @@ Token* Token::getTokenData(void)
 			}
 			else
 			{
-				//fseek(source, -1, SEEK_CUR);
+				file.seekg(-1, std::ios_base::cur);
 
 				type = DOUBLE;
 
@@ -183,7 +209,9 @@ Token* Token::getTokenData(void)
 			}
 			else
 			{
-				//chyba
+				type = ERR;
+				attr = "E-CHYBA";
+				return token;
 			}
 			break;
 		case ST_EXP:
@@ -194,7 +222,9 @@ Token* Token::getTokenData(void)
 			}
 			else
 			{
-				//chyba
+				type = ERR;
+				attr = "EXP-CHYBA";
+				return token;
 			}
 			break;
 		case ST_EXP2:
@@ -204,7 +234,7 @@ Token* Token::getTokenData(void)
 			}
 			else
 			{
-				//fseek(source, -1, SEEK_CUR);
+				file.seekg(-1, std::ios_base::cur);
 
 				type = DOUBLE;
 
@@ -218,18 +248,19 @@ Token* Token::getTokenData(void)
 
 		case ST_ID:
 			//je li na vstupu podtrzitko, pismeno nebo cislice, sestavujeme retezec
-			if ((c == '_') || (isalpha(c)) || (isdigit(c)))
+			if ((c == '_') || (isalpha(c)) || (isdigit(c)) || (c == '.'))
 			{
 				str.push_back(c);
 			}
 			else  //pokud ne, tak nez vratim token, tak se podivam, zda to neni klicove slovo
 			{
-				//fseek(source, -1, SEEK_CUR);		//vratim posledne nacteny znak
+				file.seekg(-1, std::ios_base::cur);		//vratim posledne nacteny znak
 
 				if (isKeyword(str))
 				{
 					type = KEYWORD;
 
+					std::transform(str.begin(), str.end(), str.begin(), ::tolower);
 					attr = str;
 					str.clear();
 

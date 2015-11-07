@@ -1,3 +1,6 @@
+#ifndef IMS__NOT
+#define IMS__NOT
+
 /** @file NOT.h*/
 
 /*************************************\
@@ -34,3 +37,5 @@ public:
 	*/
 	virtual bit getY();
 };
+
+#endif

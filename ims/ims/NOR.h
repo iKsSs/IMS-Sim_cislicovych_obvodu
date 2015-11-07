@@ -1,3 +1,6 @@
+#ifndef IMS__NOR
+#define IMS__NOR
+
 /** @file NOR.h*/
 
 /*************************************\
@@ -33,3 +36,5 @@ public:
 	*/
 	virtual bit getY();
 };
+
+#endif

@@ -1,0 +1,28 @@
+TIME 10;
+CLK 2;
+
+NAND nand1, 1;
+NAND nand2, 1;
+
+CON !S;
+CON !R;
+CON Q;
+CON !Q;
+
+#definition
+BEGIN
+
+SET !S, 0, L;
+SET R, 0, H;
+SET Q, 0, L;
+SET !Q, 0, H;
+
+SET !S, 6, H;
+SET R, 6, H;
+
+ADD !S, nand1.a;
+ADD R, nand2.b;
+ADD Q, nand1.y, nand2.a;
+ADD !Q, nand2.y, nand1.b;
+
+END

@@ -1,6 +1,12 @@
+
+#ifndef IMS__SCANNER
+#define IMS__SCANNER
+
 #include <locale>         // std::locale, std::tolower
 #include <iostream>
-#include <string.h>
+#include <fstream>
+#include <string>
+#include <algorithm>
 
 /**
 * @brief Definice typu tokenu
@@ -8,23 +14,13 @@
 typedef enum
 {
 	ID,		//identifikator, nazev daneho hradla
-	EQ,		//pøiøazení mzi vývody, pøiøazení konstanty
-	L,		//log. 0
-	H,		//log. 1
-	X,		//log. X
-	AND,	//hradlo AND
-	OR,		//hrado OR
-	NOT,	//hradlo NOT
-	NAND,	//hradlo NAND
-	NOR,	//hradlo NOR
-	IS,		//urèení datového typu
 	ENDFILE,
-	DOT,
 	COM,
 	SEM,
 	INT,
 	DOUBLE,
-	KEYWORD
+	KEYWORD,
+	ERR
 }TTokenType;
 
 /**
@@ -47,13 +43,8 @@ typedef enum
 /**
 * @brief Pocet klicovych slov
 */
-#define C_KEYWORDS 11
+#define C_KEYWORDS 12
 #endif
-
-/**
-* @brief Zpracovavany soubor
-*/
-//FILE *source;
 
 /**
 * @brief Definice tokenu
@@ -63,16 +54,19 @@ class Token
 	TTokenType type;
 	std::string attr;
 
+	std::ifstream file;
+
 	bool isKeyword(std::string str);
 public:
+	Token() {}
+	Token(std::string file);
+	~Token();
 
 	Token* getTokenData();
-	void print(){ std::cout << type << ":" << attr << std::endl; }
+	void print() { std::cout << "\t\t\t" << type << ":\t" << attr << std::endl; }
+	TTokenType getType() { return this->type; }
+	std::string getAttr() { return this->attr; }
 };
 
-class Parser
-{
-public:
-	Token getToken();
 
-};
+#endif

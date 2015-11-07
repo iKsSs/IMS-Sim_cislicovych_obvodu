@@ -1,3 +1,6 @@
+#ifndef IMS__NAND
+#define IMS__NAND
+
 /** @file AND.h*/
 
 /*************************************\
@@ -33,3 +36,5 @@ public:
 	*/
 	virtual bit getY();
 };
+
+#endif
