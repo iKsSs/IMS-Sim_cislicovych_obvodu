@@ -319,9 +319,13 @@ void Parser::processToken(Token *token)
 			{
 				this->schedule->b = H;
 			}
+			else if (token->getAttr() == "X")
+			{
+				this->schedule->b = X;
+			}
 			else
 			{
-				this->errMsg = "scheduled level has to be high(H|1) or low(L|0)";
+				this->errMsg = "scheduled level has to be high(H|1) or low(L|0) or X";
 				throw(-1);
 			}
 
