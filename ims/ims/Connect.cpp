@@ -44,7 +44,8 @@ vector<bits*> Connect::getNextValues()
 
 			if (count2 == 0)		//vklada prvni prvek
 			{
-				nextValue.push_back(val);
+				if (this->getValue() != val->b)
+					nextValue.push_back(val);
 			}
 
 			for (j = 0; j < count2; ++j)
@@ -62,7 +63,8 @@ vector<bits*> Connect::getNextValues()
 				}
 				else //záznam s tímto èasem neexistuje
 				{
-					nextValue.push_back(val);	//tak jej vložím
+					if (this->getValue() != val->b)
+						nextValue.push_back(val);	//tak jej vložím
 				}
 			}
 		}

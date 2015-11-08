@@ -73,6 +73,7 @@ void PlotCreator::closeFile()
 	this->script << "set key left bottom" << endl;
 	this->script << "set xtics" << endl;
 	this->script << "set ytics" << endl;
+	this->script << "set grid" << endl;
 
 	//výpoèet layoutu
 
