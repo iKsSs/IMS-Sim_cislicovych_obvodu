@@ -47,7 +47,7 @@ void Parser::processToken(Token *token)
 				{
 					this->msg = "CHYBA KEYWORD";
 
-					this->errMsg = "wrong keyword in this content";
+					this->errMsg = "wrong keyword " + attr + " in this content";
 					throw(-1);
 				}
 
@@ -56,7 +56,7 @@ void Parser::processToken(Token *token)
 			default:
 				this->msg = "CHYBA";
 
-				this->errMsg = "keyword not found";
+				this->errMsg = "keyword " + token->getAttr() + " not found";
 				throw(-1);
 				break;
 			}
@@ -71,7 +71,7 @@ void Parser::processToken(Token *token)
 
 			this->errMsg = "time value has to be a number";			//in case of exception
 			this->time = std::stoi(token->getAttr());
-			this->errMsg = "";
+			this->errMsg = "";										//reset error msg
 
 			if (this->time < 2)
 			{
@@ -97,7 +97,7 @@ void Parser::processToken(Token *token)
 
 			this->errMsg = "clk value has to be a number";			//in case of exception
 			clk = std::stoi(token->getAttr());
-			this->errMsg = "";
+			this->errMsg = "";										//reset error msg
 
 			clkgen = new CLKgen(clk, this->time, this->con);
 
@@ -124,6 +124,11 @@ void Parser::processToken(Token *token)
 			if (this->lt->search(token->getAttr()) != NULL)
 			{
 				this->errMsg = "gate redefinition - " + token->getAttr();
+				throw(-1);
+			}
+			else if (token->getAttr().find(".") != std::string::npos )
+			{
+				this->errMsg = "gate cannot contain dot(s) - " + token->getAttr();
 				throw(-1);
 			}
 
@@ -171,7 +176,7 @@ void Parser::processToken(Token *token)
 			{
 				this->msg = "SET COL: CHYBA";
 
-				this->errMsg = "comma not found";
+				this->errMsg = "delta not found";
 				throw(-1);
 			}
 			break;
@@ -179,7 +184,7 @@ void Parser::processToken(Token *token)
 		case ST_DELTA:
 			this->errMsg = "delay delta has to be a number";			//in case of exception
 			this->gate->setDelta(std::stoi(token->getAttr()));
-			this->errMsg = "";
+			this->errMsg = "";											//reset error msg
 
 			this->lt->add(this->gate);
 
@@ -237,7 +242,7 @@ void Parser::processToken(Token *token)
 				{
 					this->msg = "DEF - CHYBA KEYWORD";
 
-					this->errMsg = "wrong keyword in this content";
+					this->errMsg = "wrong keyword " + attr + " in this content";
 					throw(-1);
 				}
 
@@ -253,7 +258,7 @@ void Parser::processToken(Token *token)
 			default:
 				this->msg = "DEF - CHYBA";
 
-				this->errMsg = "keyword not found";
+				this->errMsg = "keyword " + token->getAttr() + " not found";
 				throw(-1);
 				break;
 			}
@@ -265,7 +270,7 @@ void Parser::processToken(Token *token)
 
 			if (this->schedule->c == NULL)
 			{
-				this->errMsg = "connection not found";
+				this->errMsg = "SET - connection " + token->getAttr() + " not found";
 				throw(-1);
 			}
 
@@ -282,7 +287,7 @@ void Parser::processToken(Token *token)
 			{
 				this->msg = "DEF - SET COL: CHYBA";
 
-				this->errMsg = "comma not found";
+				this->errMsg = "SET - time not found";
 				throw(-1);
 			}
 			break;
@@ -290,7 +295,7 @@ void Parser::processToken(Token *token)
 		case ST_SET_TIME:
 			this->errMsg = "scheduled time has to be a number" + token->getAttr();			//in case of exception
 			this->schedule->time = std::stoi(token->getAttr());
-			this->errMsg = "";
+			this->errMsg = "";												//reset error msg
 
 			this->msg = "TIME: " + token->getAttr();
 			this->state = ST_SET_COL2;
@@ -305,7 +310,7 @@ void Parser::processToken(Token *token)
 			{
 				this->msg = "DEF - CHYBA";
 
-				this->errMsg = "comma not found";
+				this->errMsg = "SET - level not found";
 				throw(-1);
 			}
 			break;
@@ -340,7 +345,7 @@ void Parser::processToken(Token *token)
 
 			if (this->con == NULL)
 			{
-				this->errMsg = "connection not found";
+				this->errMsg = "ADD - connection " + token->getAttr() + " not found";
 				throw(-1);
 			}
 
@@ -357,7 +362,7 @@ void Parser::processToken(Token *token)
 			{
 				this->msg = "DEF - CHYBA";
 
-				this->errMsg = "comma not found";
+				this->errMsg = "ADD - gate with port not found";
 				throw(-1);
 			}
 			break;
@@ -368,10 +373,15 @@ void Parser::processToken(Token *token)
 
 			if (gate == NULL)
 			{
-				this->errMsg = "gate not found - " + attr.substr(0, attr.find('.'));
+				this->errMsg = "ADD - gate not found - " + attr.substr(0, attr.find('.'));
 				throw(-1);
 			}
-			else if (attr.back() == 'a' || attr.back() == 'b' || attr.back() == 'y')
+			else if (attr.find('.') == std::string::npos )
+			{
+				this->errMsg = "ADD - missing gate port - " + attr;
+				throw(-1);
+			}
+			else if ( attr.back() == 'a' || attr.back() == 'b' || attr.back() == 'y' )
 			{
 				this->con->addToNode(gate, attr.back());
 
@@ -380,7 +390,7 @@ void Parser::processToken(Token *token)
 			}
 			else
 			{
-				this->errMsg = "wrong gate port - " + attr.back();
+				this->errMsg = "ADD - wrong gate port - " + attr.back();
 				throw(-1);
 			}
 
@@ -399,7 +409,7 @@ void Parser::processToken(Token *token)
 			{
 				this->msg = "DEF - CHYBA";
 
-				this->errMsg = "comma or semicolon not found";
+				this->errMsg = "ADD - comma or semicolon not found";
 				throw(-1);
 			}
 			break;
