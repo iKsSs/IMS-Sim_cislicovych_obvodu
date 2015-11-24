@@ -35,10 +35,10 @@ void SimCore::printResult()
 	//konec vypisu
 }
 
-void SimCore::run()
+void SimCore::run(std::string file)
 {
 	Scheduler *scheduler = Scheduler::instance();
-	PlotCreator plot("test", this->time);
+	PlotCreator plot(file.substr(0,file.find_last_of(".")).c_str(), this->time);
 
 	while (true)
 	{

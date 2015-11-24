@@ -55,5 +55,5 @@ public:
 	/**
 	* Spuštìní simulace
 	*/
-	void run();							//spuštìní simulace
+	void run(std::string);							//spuštìní simulace
 };

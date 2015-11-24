@@ -55,7 +55,7 @@ int main(int argc, const char* argv[])
 		}
 
 		SimCore sim(KLO, parser->getTime());
-		sim.run();
+		sim.run(file);
 
 		system("pause");
 	}
