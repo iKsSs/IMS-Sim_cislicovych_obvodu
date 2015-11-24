@@ -33,6 +33,7 @@ typedef struct
 	bit b;					//na jakou hodnotu
 	//int i;				//koho aktualozovat (index do connections)
 	void *c;				//koho aktualizovat (void ukazatel je zde použít, protože ještì není známa tøída connect, nicménì tøída connect tuto strukturu využívá a proto musí být uvedena pøed ní
+	void *l;					//kdo o zmenu pozadal
 } bits;
 
 /**

@@ -37,6 +37,7 @@ vector<bits*> Connect::getNextValues()
 			//val.b = ll->getY();
 			val->b = tmp.l->getY();
 			val->c = this;
+			val->l = tmp.l;		//odkaz na hradlo, to je treba po provedeni akce odmeknout
 
 			//existuje už záznam z tímto èasem?
 			unsigned int count2 = nextValue.size();
@@ -114,7 +115,7 @@ void Connect::setValue(bit b)
 			//	ll->setA(b);
 			//
 
-			tmp.l->setA(b);
+			tmp.l->setA(b);		//lock hradlo 
 		}
 		else if (tmp.pin == 'b')
 		{
@@ -125,7 +126,7 @@ void Connect::setValue(bit b)
 			//	ll->setB(b);
 			//}
 
-			tmp.l->setB(b);
+			tmp.l->setB(b);		//lock hradlo
 		}
 		else
 		{

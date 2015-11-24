@@ -1,7 +1,7 @@
 #include "Logic.h"
 
 void Logic::setA(bit A)
-{
+{ 
 	this->A = A;
 }
 
@@ -29,3 +29,4 @@ unsigned char Logic::getDelta()
 {
 	return this->delta;
 }
+

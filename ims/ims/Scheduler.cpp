@@ -13,8 +13,35 @@ Scheduler* Scheduler::instance()
 void Scheduler::addEvent(SchedulerEvent *e)
 {
 	//this->q.push_back(e);
+	Logic *l = (Logic*)e->l;
+
 	unsigned int count = this->q.size();
 	unsigned int i;
+
+	if (l != NULL)		//event zasila hradlo
+	{
+		for (i = 0; i < count; ++i)
+		{
+			if (this->q[i]->time > e->time - l->getDelta())		//casy, kdy mohlo hradlo neco planovat a od ktere doby jeste neuplynulo zpozdeni
+			{
+				unsigned int count2 = this->q[i]->events.size();
+				unsigned int j;
+
+				for (j = 0; j < count2; ++j)
+				{
+					//planovalo nejaky zaznam toto hradlo?
+					Logic *ll = (Logic *)this->q[i]->events[j]->l;
+
+					if (ll == l)
+					{
+						//zahazuju pozadavek na planovani
+
+						return;
+					}
+				}
+			}
+		}
+	}
 
 	for (i = 0; i < count; ++i)
 	{

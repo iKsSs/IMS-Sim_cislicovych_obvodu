@@ -39,7 +39,7 @@ void SimCore::run(std::string file)
 {
 	Scheduler *scheduler = Scheduler::instance();
 	PlotCreator plot(file.substr(0,file.find_last_of(".")).c_str(), this->time);
-
+	
 	while (true)
 	{
 		if (scheduler->isEmpty())
@@ -62,7 +62,7 @@ void SimCore::run(std::string file)
 			Connect *c = (Connect*)e->events[i]->c;
 
 			c->setValue(b);
-
+			
 			cout << "Set bus name: " << c->getName() << " to value: " << e->events[i]->b << endl;
 		}
 

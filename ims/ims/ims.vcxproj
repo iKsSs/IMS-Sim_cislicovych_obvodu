@@ -153,6 +153,7 @@
     <ClCompile Include="NOR.cpp" />
     <ClCompile Include="NOT.cpp" />
     <ClCompile Include="OR.cpp" />
+    <ClCompile Include="parser.cpp" />
     <ClCompile Include="PlotCreator.cpp" />
     <ClCompile Include="scanner.cpp" />
     <ClCompile Include="Scheduler.cpp" />
@@ -169,6 +170,7 @@
     <ClInclude Include="NOR.h" />
     <ClInclude Include="NOT.h" />
     <ClInclude Include="OR.h" />
+    <ClInclude Include="parser.h" />
     <ClInclude Include="PlotCreator.h" />
     <ClInclude Include="scanner.h" />
     <ClInclude Include="Scheduler.h" />

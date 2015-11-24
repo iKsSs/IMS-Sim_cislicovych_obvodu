@@ -31,6 +31,7 @@ typedef struct
 	unsigned int time;
 	bit b;
 	void *c;
+	void *l;
 }
 SchedulerEvent;
 

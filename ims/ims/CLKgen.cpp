@@ -17,12 +17,14 @@ CLKgen::CLKgen(unsigned int period, unsigned int max_time, Connect *clk)
 		eL->b = L;
 		eL->c = clk;
 		eL->time = i;
+		eL->l = NULL;
 
 		this->scheduler->addEvent(eL);
 
 		eH->b = H;
 		eH->c = clk;
 		eH->time = i + (period / 2);
+		eH->l = NULL;
 
 		this->scheduler->addEvent(eH);
 	}

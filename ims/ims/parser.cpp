@@ -319,14 +319,17 @@ void Parser::processToken(Token *token)
 			if (token->getAttr() == "L" || token->getAttr() == "0")
 			{
 				this->schedule->b = L;
+				this->schedule->l = NULL;
 			}
 			else if (token->getAttr() == "H" || token->getAttr() == "1")
 			{
 				this->schedule->b = H;
+				this->schedule->l = NULL;
 			}
 			else if (token->getAttr() == "X")
 			{
 				this->schedule->b = X;
+				this->schedule->l = NULL;
 			}
 			else
 			{
