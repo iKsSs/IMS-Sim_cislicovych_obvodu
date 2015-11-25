@@ -6,7 +6,7 @@
 
 SimCore::SimCore(SIM_TYPE, int time)
 {
-	if (time < 0) throw("Chyba parametrù simulace.\n");
+	if (time < 0) throw("sim error");
 
 	this->time = time;
 	this->elapsedTime = 0;

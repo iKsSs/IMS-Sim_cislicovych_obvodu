@@ -59,7 +59,7 @@ vector<bits*> Connect::getNextValues()
 					}
 					else
 					{
-						throw("Chyba bìhem simulace, nedefinovaný stav na sbìrnici.\n");
+						throw("not defined level");
 					}
 				}
 				else //záznam s tímto èasem neexistuje
