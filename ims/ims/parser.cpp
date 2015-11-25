@@ -128,7 +128,7 @@ void Parser::processToken(Token *token)
 			}
 			else if (token->getAttr().find(".") != std::string::npos )
 			{
-				this->errMsg = "gate cannot contain dot(s) - " + token->getAttr();
+				this->errMsg = "gates name cannot contain dot(s) - " + token->getAttr();
 				throw(-1);
 			}
 
@@ -182,7 +182,7 @@ void Parser::processToken(Token *token)
 			break;
 
 		case ST_DELTA:
-			this->errMsg = "delay delta has to be a number";			//in case of exception
+			this->errMsg = "delta has to be a number";			//in case of exception
 			this->gate->setDelta(std::stoi(token->getAttr()));
 			this->errMsg = "";											//reset error msg
 
@@ -270,7 +270,7 @@ void Parser::processToken(Token *token)
 
 			if (this->schedule->c == NULL)
 			{
-				this->errMsg = "SET - connection " + token->getAttr() + " not found";
+				this->errMsg = "SET - connection " + token->getAttr() + " not defined";
 				throw(-1);
 			}
 
@@ -319,23 +319,22 @@ void Parser::processToken(Token *token)
 			if (token->getAttr() == "L" || token->getAttr() == "0")
 			{
 				this->schedule->b = L;
-				this->schedule->l = NULL;
 			}
 			else if (token->getAttr() == "H" || token->getAttr() == "1")
 			{
 				this->schedule->b = H;
-				this->schedule->l = NULL;
 			}
 			else if (token->getAttr() == "X")
 			{
 				this->schedule->b = X;
-				this->schedule->l = NULL;
 			}
 			else
 			{
 				this->errMsg = "scheduled level has to be high(H|1) or low(L|0) or X";
 				throw(-1);
 			}
+			
+			this->schedule->l = NULL;
 
 			this->scheduler->addEvent(this->schedule);
 
@@ -348,7 +347,7 @@ void Parser::processToken(Token *token)
 
 			if (this->con == NULL)
 			{
-				this->errMsg = "ADD - connection " + token->getAttr() + " not found";
+				this->errMsg = "ADD - connection " + token->getAttr() + " not defined";
 				throw(-1);
 			}
 
@@ -365,7 +364,7 @@ void Parser::processToken(Token *token)
 			{
 				this->msg = "DEF - CHYBA";
 
-				this->errMsg = "ADD - gate with port not found";
+				this->errMsg = "ADD - after " + this->con->getName() + " comma not found";
 				throw(-1);
 			}
 			break;
@@ -376,7 +375,7 @@ void Parser::processToken(Token *token)
 
 			if (gate == NULL)
 			{
-				this->errMsg = "ADD - gate not found - " + attr.substr(0, attr.find('.'));
+				this->errMsg = "ADD - gate " + attr.substr(0, attr.find('.')) + " not found";
 				throw(-1);
 			}
 			else if (attr.find('.') == std::string::npos )
