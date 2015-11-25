@@ -59,7 +59,7 @@ vector<bits*> Connect::getNextValues()
 					}
 					else
 					{
-						throw("not defined level");
+						throw("undefined level");
 					}
 				}
 				else //záznam s tímto èasem neexistuje
@@ -105,6 +105,16 @@ void Connect::setValue(bit b)
 		//string name = tmp.substr(0, tmp.length() - 2);
 
 		NodeItem tmp = this->nodePins[i];
+
+		if (tmp.pin == 'y')			//kontrola, zda nejake hradlo nedrzi danou sbernici ve stavu jine logicke urovne
+		{
+			bit s = tmp.l->getY();
+
+			if (s != X && s != b)
+			{
+				throw("undefined level");
+			}
+		}
 
 		if (tmp.pin == 'a')			//je vystupní
 		{
