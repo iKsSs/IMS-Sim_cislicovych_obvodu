@@ -28,7 +28,7 @@ CON Y;
 BEGIN
 SET A1, 0, L;
 SET A2, 0, H;
-SET B1, 0, L;
+SET B1, 0, H;
 SET B2, 0, H;
 ADD A1, nand1.a, nand2.a;
 ADD B1, not1.a;
