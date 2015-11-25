@@ -1,8 +1,0 @@
-TIME 50;
-CLK 10;
-AND and, 6;
-CON Y;
-BEGIN
-ADD clk, and.a, and.b;
-ADD Y, and.y;
-END
