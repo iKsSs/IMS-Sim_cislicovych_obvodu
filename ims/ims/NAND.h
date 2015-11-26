@@ -1,6 +1,3 @@
-#ifndef IMS__NAND
-#define IMS__NAND
-
 /** @file AND.h*/
 
 /*************************************\
@@ -15,6 +12,9 @@ Modul: NAND
 Author: Martin Pitøík
 Rev: 1
 */
+
+#ifndef IMS__NAND
+#define IMS__NAND
 
 #include "Logic.h"
 

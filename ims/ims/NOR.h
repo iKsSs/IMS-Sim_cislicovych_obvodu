@@ -1,6 +1,3 @@
-#ifndef IMS__NOR
-#define IMS__NOR
-
 /** @file NOR.h*/
 
 /*************************************\
@@ -15,6 +12,9 @@ Modul: NOR
 Author: Martin Pitøík
 Rev: 1
 */
+
+#ifndef IMS__NOR
+#define IMS__NOR
 
 #include "Logic.h"
 

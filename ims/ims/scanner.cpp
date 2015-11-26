@@ -1,16 +1,3 @@
-/*************************************\
-*			  *
-*	Autoøi:							  *
-*		xpitri00 - Martin Pitøík	  *
-*		xpastu00 - Jakub Pastuszek	  *
-*									  *
-\*************************************/
-/*
-Modul: scanner.cpp
-Author: Jakub Pastuszek
-Rev: 1
-*/
-
 #include "scanner.h"
 
 Token::Token(std::string file)
@@ -31,7 +18,7 @@ std::vector<std::string> keywords = { "begin", "end", "time", "clk", "and", "or"
 
 bool Token::isKeyword(std::string str)
 {
-	int i;
+	unsigned int i;
 	std::locale loc;
 
 	for (std::string::size_type i = 0; i < str.length(); ++i)

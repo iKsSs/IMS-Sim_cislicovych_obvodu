@@ -1,5 +1,20 @@
-#ifndef IMS__PARSER
-#define IMS__PARSER
+/** @file parser.h*/
+
+/*************************************\
+*			  *
+*	Autoøi:							  *
+*		xpitri00 - Martin Pitøík	  *
+*		xpastu00 - Jakub Pastuszek	  *
+*									  *
+\*************************************/
+/*
+Modul: parser
+Author: Jakub Pastuszek
+Rev: 1
+*/
+
+#ifndef __PARSER_
+#define __PARSER_
 
 #include <iostream>
 

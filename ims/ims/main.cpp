@@ -1,18 +1,18 @@
 #include "AND.h"
+#include "NAND.h"
 #include "OR.h"
 #include "NOR.h"
 #include "NOT.h"
-#include "NAND.h"
 
-#include "Connect.h"
-#include "LogicsTable.h"
-#include "Connections.h"
-#include "SimCore.h"
-#include "Scheduler.h"
-#include "PlotCreator.h"
 #include "CLKGen.h"
-#include "scanner.h"
+#include "Connect.h"
+#include "Connections.h"
+#include "LogicsTable.h"
 #include "parser.h"
+#include "PlotCreator.h"
+#include "scanner.h"
+#include "Scheduler.h"
+#include "SimCore.h"
 
 #include <iostream>
 #include <vector>

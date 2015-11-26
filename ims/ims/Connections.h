@@ -13,14 +13,14 @@ Author: Martin Pitøík
 Rev: 1
 */
 
+#ifndef __CT_
+#define __CT_
 
 #include <vector>
+
 #include "Connect.h"
 
 using namespace std;
-
-#ifndef __CT_
-#define __CT_
 
 /**
 * Tøída obsahující seznam všech propojení.

@@ -1,6 +1,20 @@
+/** @file scanner.h*/
 
-#ifndef IMS__SCANNER
-#define IMS__SCANNER
+/*************************************\
+*			  *
+*	Autoøi:							  *
+*		xpitri00 - Martin Pitøík	  *
+*		xpastu00 - Jakub Pastuszek	  *
+*									  *
+\*************************************/
+/*
+Modul: scanner
+Author: Jakub Pastuszek
+Rev: 1
+*/
+
+#ifndef __SCANNER_
+#define __SCANNER_
 
 #include <locale>         // std::locale, std::tolower
 #include <iostream>

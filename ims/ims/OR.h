@@ -1,6 +1,3 @@
-#ifndef IMS__OR
-#define IMS__OR
-
 /** @file OR.h*/
 
 /*************************************\
@@ -15,6 +12,9 @@ Modul: OR
 Author: Martin Pitøík
 Rev: 1
 */
+
+#ifndef IMS__OR
+#define IMS__OR
 
 #include "Logic.h"
 
