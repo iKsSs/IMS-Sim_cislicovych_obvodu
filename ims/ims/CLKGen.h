@@ -1,3 +1,18 @@
+/** @file CLKGen.h*/
+
+/*************************************\
+*			  *
+*	Autoøi:							  *
+*		xpitri00 - Martin Pitøík	  *
+*		xpastu00 - Jakub Pastuszek	  *
+*									  *
+\*************************************/
+/*
+Modul: CLKGen
+Author: Martin Pitøík
+Rev: 1
+*/
+
 #ifndef IMS__CLKGen
 #define IMS__CLKGen
 

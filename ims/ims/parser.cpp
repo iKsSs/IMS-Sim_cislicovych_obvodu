@@ -6,8 +6,6 @@ void Parser::processToken(Token *token)
 	int clk;
 	CLKgen *clkgen;	
 
-//	std::cout << this->state << std::endl;
-
 	this->msg = "";
 
 	if (!definition)

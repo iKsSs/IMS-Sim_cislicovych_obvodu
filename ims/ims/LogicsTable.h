@@ -13,14 +13,14 @@ Author: Martin Pitøík
 Rev: 1
 */
 
+#ifndef __LT_
+#define __LT_
 
 #include <vector>
+
 #include "Logic.h"
 
 using namespace std;
-
-#ifndef __LT_
-#define __LT_
 
 /**
 * Tøída seznamu všech hradel. 

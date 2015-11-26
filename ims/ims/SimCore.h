@@ -13,12 +13,18 @@ Author: Martin Pitøík
 Rev: 1
 */
 
+#ifndef __SIMCORE_
+#define __SIMCORE_
+
+#include <iostream>
 #include <string>
 #include <vector>
 
 #include "Logic.h"
 #include "Connections.h"
 #include "LogicsTable.h"
+#include "Scheduler.h"
+#include "PlotCreator.h"
 
 using namespace std;
 
@@ -57,3 +63,5 @@ public:
 	*/
 	void run(std::string);							//spuštìní simulace
 };
+
+#endif

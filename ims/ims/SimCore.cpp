@@ -1,8 +1,4 @@
 #include "SimCore.h"
-#include "Scheduler.h"
-#include "PlotCreator.h"
-
-#include <iostream>
 
 SimCore::SimCore(SIM_TYPE, int time)
 {
@@ -31,7 +27,6 @@ void SimCore::printResult()
 
 	cout << endl;
 
-	//system("pause");
 	//konec vypisu
 }
 

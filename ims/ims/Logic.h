@@ -13,13 +13,12 @@ Author: Martin Pitøík
 Rev: 2
 */
 
+#ifndef __LOGIC__
+#define __LOGIC__
 
 #include <string>
 
 using namespace std;
-
-#ifndef __LOGIC__
-#define __LOGIC__
 
 /**
 * Výètový typ seskupující jednotlivé podporované logické stavy.

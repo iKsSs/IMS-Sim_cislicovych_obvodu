@@ -13,16 +13,16 @@ Author: Martin Pitøík
 Rev: 3
 */
 
+#ifndef __CONNECT_
+#define __CONNECT_
 
 #include <vector>
 #include <string>
 
 #include "Logic.h"
+#include "LogicsTable.h"
 
 using namespace std;
-
-#ifndef __CONNECT_
-#define __CONNECT_
 
 /**
 * Struktura popisující jednotlivé zmìny logické hodnoty v èase.

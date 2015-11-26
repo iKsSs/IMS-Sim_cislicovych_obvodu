@@ -1,5 +1,4 @@
 #include "Connect.h"
-#include "LogicsTable.h"
 
 //state v konstruktoru nastavit na X
 

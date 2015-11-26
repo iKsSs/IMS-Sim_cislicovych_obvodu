@@ -1,6 +1,3 @@
-#ifndef IMS__AND
-#define IMS__AND
-
 /** @file AND.h*/
 
 /*************************************\
@@ -15,6 +12,9 @@ Modul: AND
 Author: Martin Pitøík
 Rev: 1
 */
+
+#ifndef IMS__AND
+#define IMS__AND
 
 #include "Logic.h"
 

@@ -1,6 +1,3 @@
-#ifndef IMS__NOT
-#define IMS__NOT
-
 /** @file NOT.h*/
 
 /*************************************\
@@ -16,6 +13,8 @@ Author: Martin Pitøík
 Rev: 1
 */
 
+#ifndef IMS__NOT
+#define IMS__NOT
 
 #include "Logic.h"
 

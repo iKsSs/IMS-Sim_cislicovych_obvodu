@@ -1,3 +1,21 @@
+/** @file PlotCreator.h*/
+
+/*************************************\
+*			  *
+*	Autoøi:							  *
+*		xpitri00 - Martin Pitøík	  *
+*		xpastu00 - Jakub Pastuszek	  *
+*									  *
+\*************************************/
+/*
+Modul: PlotCreator
+Author: Jakub Pastuszek
+Rev: 1
+*/
+
+#ifndef __PLOTCREATOR_
+#define __PLOTCREATOR_
+
 #include <vector>
 #include <fstream>
 #include <string>
@@ -33,3 +51,5 @@ public:
 	void writeState(unsigned int);
 	void closeFile();
 };
+
+#endif
