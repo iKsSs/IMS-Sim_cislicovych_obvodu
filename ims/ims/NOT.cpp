@@ -1,10 +1,5 @@
 #include "NOT.h"
 
-NOT::NOT()
-{
-
-}
-
 bit NOT::getY()
 {		
 	if (this->A == H)

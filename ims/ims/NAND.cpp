@@ -1,10 +1,5 @@
 #include "NAND.h"
 
-NAND::NAND()
-{
-
-}
-
 bit NAND::getY()
 {
 

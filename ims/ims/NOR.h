@@ -27,7 +27,7 @@ public:
 	/**
 	* Konstruktor
 	*/
-	NOR();
+	NOR() : Logic() {}
 
 	/**
 	* Vrací výstup hradla NOR

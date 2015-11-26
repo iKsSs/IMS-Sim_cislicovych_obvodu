@@ -32,5 +32,13 @@ Logic* LogicsTable::search(string name)
 
 void LogicsTable::clearAll()
 {
+	/*unsigned int count = this->logics.size();
+
+	for (unsigned int i = 0; i < count; ++i)
+	{
+		Logic* tmp = this->logics[i];
+		delete tmp;
+	}*/
+	
 	this->logics.clear();
 }

@@ -56,6 +56,9 @@ int main(int argc, const char* argv[])
 
 		SimCore sim(KLO, parser->getTime());
 		sim.run(file);
+
+		delete token;
+		delete parser;
 	}
 	catch (const char* s)
 	{

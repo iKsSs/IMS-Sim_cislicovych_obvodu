@@ -27,7 +27,7 @@ public:
 	/**
 	* Konstruktor
 	*/
-	OR();
+	OR() : Logic() {}
 
 	/**
 	* Vrací výstup hradla NOT

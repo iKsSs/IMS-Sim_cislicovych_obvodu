@@ -27,7 +27,7 @@ public:
 	/**
 	* Konstruktor
 	*/
-	AND();
+	AND() : Logic() {}
 
 	/**
 	* Vrací výstup hradla AND

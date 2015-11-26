@@ -1,10 +1,5 @@
 #include "OR.h"
 
-OR::OR()
-{
-
-}
-
 bit OR::getY()
 {
 	if (this->A == X || this->B == X)

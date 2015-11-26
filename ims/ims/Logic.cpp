@@ -1,5 +1,13 @@
 #include "Logic.h"
 
+Logic::Logic()
+{
+	this->A = this->B = X;
+	this->delta = 0;
+	this->Y = X;
+	this->name = "";
+}
+
 void Logic::setA(bit A)
 { 
 	this->A = A;

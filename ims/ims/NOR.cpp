@@ -1,10 +1,5 @@
 #include "NOR.h"
 
-NOR::NOR()
-{
-
-}
-
 bit NOR::getY()
 {
 	if (this->A == X || this->B == X)

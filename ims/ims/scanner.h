@@ -66,7 +66,7 @@ class Token
 
 	bool isKeyword(std::string str);
 public:
-	Token() {}
+	Token() { }
 	Token(std::string file);
 	~Token();
 

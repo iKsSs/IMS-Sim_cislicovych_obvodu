@@ -41,6 +41,8 @@ protected:
 	string name;
 
 public:
+	Logic();
+
 	/**
 	* Virtuální metoda popisující chování daného logického prvku. Tuto metodu je nutné v odvozených tøídách implementovat.
 	* @return		bit			výstup hradla

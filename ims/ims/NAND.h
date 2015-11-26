@@ -27,7 +27,7 @@ public:
 	/**
 	* Konstruktor
 	*/
-	NAND();
+	NAND() : Logic() {}
 
 	/**
 	* Vrací výstup hradla AND
