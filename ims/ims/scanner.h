@@ -7,6 +7,7 @@
 #include <fstream>
 #include <string>
 #include <algorithm>
+#include <vector>
 
 /**
 * @brief Definice typu tokenu

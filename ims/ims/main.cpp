@@ -10,13 +10,13 @@
 #include "SimCore.h"
 #include "Scheduler.h"
 #include "PlotCreator.h"
-#include "CLKgen.h"
+#include "CLKGen.h"
 #include "scanner.h"
 #include "parser.h"
 
 #include <iostream>
 #include <vector>
-
+#include <sys/stat.h>
 
 using namespace std;
 
@@ -56,17 +56,13 @@ int main(int argc, const char* argv[])
 
 		SimCore sim(KLO, parser->getTime());
 		sim.run(file);
-
-		system("pause");
 	}
 	catch (const char* s)
 	{
 		cerr << "ERROR: " << s << endl;
-		system("pause");
 	}
 	catch (...)
 	{
 		cerr << "ERROR: " << parser->getErrMsg() << endl;
-		system("pause");
 	}
 }

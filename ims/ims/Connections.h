@@ -67,4 +67,4 @@ public:
 	void clearAll();
 };
 
-#endif;
+#endif

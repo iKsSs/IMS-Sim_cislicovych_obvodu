@@ -25,7 +25,7 @@ Token::~Token()
 
 //definice pripustnych klicovych slov jazyka
 
-char keywords[][C_KEYWORDS] = { "begin", "end", "time", "clk", "and", "or", "not", "nand", "nor", "set", "add", "con" };
+std::vector<std::string> keywords = { "begin", "end", "time", "clk", "and", "or", "not", "nand", "nor", "set", "add", "con" };
 
 //zjisti, zda retezec je klicove slovo
 
@@ -39,7 +39,7 @@ bool Token::isKeyword(std::string str)
 
 	for (i = 0; i < C_KEYWORDS; ++i)
 	{
-		if (strcmp(str.c_str(), keywords[i]) == 0)
+		if ( str == keywords[i] )
 		{
 			return true;
 		}
