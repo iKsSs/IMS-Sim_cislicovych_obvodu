@@ -143,7 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AND.cpp" />
-    <ClCompile Include="CLKgen.cpp" />
+    <ClCompile Include="CLKGen.cpp" />
     <ClCompile Include="Connect.cpp" />
     <ClCompile Include="Connections.cpp" />
     <ClCompile Include="Logic.cpp" />

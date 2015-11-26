@@ -1,4 +1,4 @@
-#include "CLKgen.h"
+#include "CLKGen.h"
 
 CLKgen::CLKgen(unsigned int period, unsigned int max_time, Connect *clk)
 {

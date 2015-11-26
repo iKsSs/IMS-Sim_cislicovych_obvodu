@@ -1,6 +1,9 @@
 #include "Connect.h"
 #include "LogicsTable.h"
 
+#include <iostream>
+
+
 //state v konstruktoru nastavit na X
 
 Connect::Connect()
@@ -100,10 +103,6 @@ void Connect::setValue(bit b)
 
 	for (i = 0; i < count; ++i)
 	{
-		//string tmp = pins[i];
-		//char pin = tmp[tmp.length() - 1];	   //nazevxxxx.A/B cte posledni pismeno
-		//string name = tmp.substr(0, tmp.length() - 2);
-
 		NodeItem tmp = this->nodePins[i];
 
 		if (tmp.pin == 'y')			//kontrola, zda nejake hradlo nedrzi danou sbernici ve stavu jine logicke urovne
@@ -112,9 +111,20 @@ void Connect::setValue(bit b)
 
 			if (s != X && s != b)
 			{
-				throw("undefined level");
+				std::cout << s << " " << b << " " << this->getName() << " " << tmp.l->getName() << endl;
+
+				//throw("undefined level 2");
 			}
-		}
+		}	
+	}
+
+	for (i = 0; i < count; ++i)
+	{
+		//string tmp = pins[i];
+		//char pin = tmp[tmp.length() - 1];	   //nazevxxxx.A/B cte posledni pismeno
+		//string name = tmp.substr(0, tmp.length() - 2);
+
+		NodeItem tmp = this->nodePins[i];
 
 		if (tmp.pin == 'a')			//je vystupní
 		{

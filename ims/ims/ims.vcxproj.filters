@@ -57,10 +57,10 @@
     <ClCompile Include="NOR.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CLKgen.cpp">
+    <ClCompile Include="parser.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="parser.cpp">
+    <ClCompile Include="CLKGen.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
