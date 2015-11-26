@@ -34,10 +34,10 @@ bool Token::isKeyword(std::string str)
 	int i;
 	std::locale loc;
 
-	for (std::string::size_type i = 0; i<str.length(); ++i)
+	for (std::string::size_type i = 0; i < str.length(); ++i)
 		str[i] = std::tolower(str[i], loc);
 
-	for (i = 0; i < C_KEYWORDS; ++i)
+	for (i = 0; i < keywords.size(); ++i)
 	{
 		if ( str == keywords[i] )
 		{

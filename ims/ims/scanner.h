@@ -40,13 +40,6 @@ typedef enum
 	ST_ID
 }TState;
 
-#ifndef C_KEYWORDS
-/**
-* @brief Pocet klicovych slov
-*/
-#define C_KEYWORDS 12
-#endif
-
 /**
 * @brief Definice tokenu
 */
@@ -68,6 +61,5 @@ public:
 	TTokenType getType() { return this->type; }
 	std::string getAttr() { return this->attr; }
 };
-
 
 #endif
