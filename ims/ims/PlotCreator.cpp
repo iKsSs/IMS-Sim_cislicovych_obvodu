@@ -61,6 +61,11 @@ void PlotCreator::closeFile()
 			this->file << rr.time << " " << rr.b << endl;
 		}
 
+		if (r.records[--j].time != this->time)
+		{
+			this->file << this->time << " " << r.records[j].b << endl;
+		}
+
 		this->file << endl << endl;
 	}
 
@@ -70,16 +75,30 @@ void PlotCreator::closeFile()
 
 	this->script << "set yrange[-1:3]" << endl;
 	this->script << "set xrange[0:" << this->time << "]" << endl;
-	this->script << "set key left bottom" << endl;
+	this->script << "set key box samplen 1 spacing 1 width 1 height 0" << endl;
 	this->script << "set xtics" << endl;
-	this->script << "set ytics" << endl;
+	this->script << "set ytics (0,1,\"X\" 2)" << endl;
 	this->script << "set grid" << endl;
 
 	//výpoèet layoutu
+	unsigned int l1;
+	unsigned int l2;
 
-	unsigned int l1 = count / 2;
-	unsigned int l2 = count / l1;
-	l1 += count % 2;
+	if ( count <= 6)
+	{
+		l2 = 2;
+	}
+	else
+	{
+		l2 = (count / 4);
+		l2++;
+	}
+
+	l1 = count / l2;
+	if ((count - (l1*l2)) != 0)
+	{
+		l1++;
+	}
 
 	this->script << "set multiplot layout " << l1 << "," << l2 << endl;
 
